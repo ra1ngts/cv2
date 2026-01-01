@@ -1,0 +1,14 @@
+.git/*
+
+.idea/
+
+**/migrations/*
+!**/migrations/__init__.py
+
+/static/*
+/media/*
+
+**/__pycache__/*
+*.pyc
+
+cv2/local.py
