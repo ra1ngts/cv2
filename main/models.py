@@ -6,12 +6,12 @@ from filer.fields.image import FilerImageField
 
 class Basic(models.Model):
     created_at = models.DateTimeField(
-        verbose_name=_('Создано'),
-        auto_now_add=True
+        auto_now_add=True,
+        verbose_name=_('Создано')
     )
     updated_at = models.DateTimeField(
-        verbose_name=_('Обновлено'),
-        auto_now=True
+        auto_now=True,
+        verbose_name=_('Обновлено')
     )
 
     class Meta:
@@ -42,13 +42,24 @@ class Information(Basic):
         verbose_name=_('Фамилия')
     )
     image = FilerImageField(
-        verbose_name=_('Изображение'),
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
+        verbose_name=_('Изображение')
     )
-    content = models.TextField()
-    phone = models.CharField()
+    description = models.TextField(
+        null=True,
+        blank=True,
+        help_text=_('Введите описание'),
+        verbose_name=_('Описание')
+    )
+    phone = models.CharField(
+        null=True,
+        blank=True,
+        max_length=15,
+        help_text=_('Введите номер телефона'),
+        verbose_name=_('Номер телефона')
+    )
     email = models.EmailField(
         null=True,
         blank=True,
