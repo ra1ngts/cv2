@@ -242,15 +242,50 @@ class Experience(Basic, BaseModelPublished, BaseModelOrderby):
         verbose_name_plural = _('Опыт')
 
 
-# class Project(Basic, BaseModelPublished, BaseModelOrderby):
-#     title = models.CharField()
-#     slug = models.SlugField(unique=True)
-#     description = models.TextField()
-#     image = FilerImageField()
-#     technologies = models.ManyToManyField(Skill, related_name='projects')
-#     github_url = models.URLField()
-#     live_url = models.URLField()
-#     order = models.PositiveIntegerField(default=0)
-#
-#     class Meta:
-#         ordering = ['order', '-created_at']
+class Project(Basic, BaseModelPublished, BaseModelOrderby):
+    title = models.CharField(
+        null=True,
+        blank=True,
+        max_length=255,
+        help_text=_('Введите название проекта'),
+        verbose_name=_('Название проекта')
+    )
+    slug = models.SlugField(unique=True)
+    description = models.TextField(
+        null=True,
+        blank=True,
+        help_text=_('Введите описание для проекта'),
+        verbose_name=_('Описание')
+    )
+    image = FilerImageField(
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        help_text=_('Загрузите изображение для проекта'),
+        verbose_name=_('Изображение')
+    )
+    technologies = models.ManyToManyField(
+        Skill,
+        related_name='projects',
+        help_text=_('Выбор навыка или технологии'),
+        verbose_name=_('Навык или технология')
+    )
+    github_url = models.URLField(
+        null=True,
+        blank=True,
+        max_length=500,
+        help_text=_('Введите ссылку на GitHub'),
+        verbose_name=_('GitHub')
+    )
+    live_demo_url = models.URLField(
+        null=True,
+        blank=True,
+        max_length=500,
+        help_text=_('Введите ссылку на Live-Demo'),
+        verbose_name=_('Ссылка на Live-Demo')
+    )
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = _('Проект')
+        verbose_name_plural = _('Проекты')
