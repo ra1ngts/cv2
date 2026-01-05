@@ -157,7 +157,7 @@ class SkillCategory(Basic, BaseModelOrderby):
         verbose_name_plural = _('Категория навыков')
 
 
-class Skill(Basic):
+class Skill(Basic, BaseModelOrderby):
     category = models.ForeignKey(
         SkillCategory,
         on_delete=models.CASCADE,
