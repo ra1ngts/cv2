@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
 import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { resolve } from 'path'
+import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
   base: '/static/svelte/assets/',
-  plugins: [svelte()],
+  plugins: [tailwindcss(), svelte()],
   resolve: {
     alias: {
       fonts: resolve('../static/svelte/fonts'),
