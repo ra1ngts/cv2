@@ -20,7 +20,7 @@ class Basic(models.Model):
 
 
 class BaseModelPublished(models.Model):
-    published = models.BooleanField(
+    is_published = models.BooleanField(
         verbose_name=_('Опубликовано'),
         default=True
     )
@@ -235,6 +235,11 @@ class Experience(Basic, BaseModelPublished, BaseModelOrderby):
 
     def __str__(self):
         return f'{self.company}: {self.position} - {self.is_current}'
+
+    @property
+    def duration(self):
+        end = self.end_date if not self.is_current else _('Настоящее время')
+        return f'{self.start_date} - {end}'
 
     class Meta:
         ordering = ['-start_date']
