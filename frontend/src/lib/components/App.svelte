@@ -85,16 +85,16 @@
   </section>
 
   <section id="experience" class="min-h-screen scroll-mt-20">
-    <h2 class="text-4xl">Experience</h2>
+    <h2 class="text-4xl pb-4">Experience</h2>
     <Experience />
   </section>
 
   <section id="projects" class="min-h-screen scroll-mt-20">
-    <h2 class="text-4xl">Projects</h2>
+    <h2 class="text-4xl pb-4">Projects</h2>
     <Projects />
   </section>
 
   <section id="contacts" class="min-h-screen scroll-mt-20">
-    <h2 class="text-4xl">Contacts</h2>
+    <h2 class="text-4xl pb-4">Contacts</h2>
   </section>
 </div>
