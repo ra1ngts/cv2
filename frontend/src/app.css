@@ -13,7 +13,7 @@
 
   body {
     font-family: var(--font-roboto);
-    @apply bg-gradient-to-t from-gray-950 to-gray-900 text-gray-400;
+    @apply antialiased bg-gradient-to-t from-gray-950 to-gray-900 text-gray-400;
   }
 }
 
