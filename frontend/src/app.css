@@ -7,9 +7,13 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: var(--font-roboto);
-    @apply bg-gray-950 text-white;
+    @apply bg-gradient-to-t from-gray-950 to-gray-900 text-gray-400;
   }
 }
 
