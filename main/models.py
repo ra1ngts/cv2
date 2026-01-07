@@ -194,6 +194,13 @@ class Skill(Basic, BaseModelOrderby):
 
 
 class Experience(Basic, BaseModelPublished, BaseModelOrderby):
+    skills = models.ManyToManyField(
+        Skill,
+        blank=True,
+        related_name='experiences',
+        verbose_name=_('Использованные навыки'),
+        help_text=_('Выберите конкретные навыки, которые вы применяли')
+    )
     company = models.CharField(
         null=True,
         blank=True,
