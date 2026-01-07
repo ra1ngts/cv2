@@ -54,6 +54,7 @@ def ResultEncoder(obj):
     if isinstance(obj, Experience):
         return {
             'id': obj.id,
+            'skills': [ResultEncoder(item) for item in obj.skills.all()],
             'company': obj.company,
             'company_url': obj.company_url,
             'position': obj.position,
