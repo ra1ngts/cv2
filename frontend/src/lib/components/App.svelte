@@ -80,21 +80,24 @@
 </div>
 
 <div class="pt-20 px-10">
-  <section id="about" class="min-h-screen scroll-mt-20">
+  <section id="about" class="py-20 scroll-mt-20">
     <Profile />
   </section>
 
-  <section id="experience" class="min-h-screen scroll-mt-20">
+  <section id="experience" class="py-20 scroll-mt-20">
     <h2 class="text-4xl pb-4">Experience</h2>
+    <hr class="py-2 border-gray-500/50 opacity-50" />
     <Experience />
   </section>
 
-  <section id="projects" class="min-h-screen scroll-mt-20">
+  <section id="projects" class="py-20 scroll-mt-20">
     <h2 class="text-4xl pb-4">Projects</h2>
+    <hr class="py-2 border-gray-500/50 opacity-50" />
     <Projects />
   </section>
 
-  <section id="contacts" class="min-h-screen scroll-mt-20">
+  <section id="contacts" class="py-20 scroll-mt-20">
     <h2 class="text-4xl pb-4">Contacts</h2>
+    <hr class="py-2 border-gray-500/50 opacity-50" />
   </section>
 </div>
