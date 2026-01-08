@@ -7,8 +7,14 @@
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
+  :root {
+     scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
   }
 
   body {
