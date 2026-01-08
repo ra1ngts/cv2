@@ -25,7 +25,13 @@
         {#if field.skills && field.skills.length > 0}
           <div class="flex flex-row gap-4">
             {#each field.skills as skill}
-              <div class="flex gap-2 items-center rounded-2xl px-4 py-2 group-hover:text-cyan-200 bg-gray-900">
+              <div
+                class="flex gap-2 items-center rounded-2xl px-4 py-2 group-hover:text-cyan-200 bg-gray-900 group-hover:bg-gray-800"
+              >
+                {#if skill.image}
+                  <img src={skill.image} alt={skill.name} class="w-10 h-10 object-cover" />
+                {/if}
+
                 <div class="text-sm font-semibold">
                   {skill.name}
                 </div>
