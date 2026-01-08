@@ -77,7 +77,7 @@ def ResultEncoder(obj):
                 },
                 'name': value.name,
                 'level': value.level,
-                'image': value.image
+                'image': value.image.url if value.image else None
             } for value in obj.technologies.all()],
             'github_url': obj.github_url,
             'live_demo_url': obj.live_demo_url,
