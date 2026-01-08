@@ -7,5 +7,7 @@
     {#each stateCtx.projects as item}
       <p>{item.title} — {item.description}</p>
     {/each}
+  {:else}
+    <p>No data available</p>
   {/if}
 </div>
