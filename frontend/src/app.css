@@ -65,6 +65,12 @@
     blink 0.5s step-end infinite;
 }
 
+.fade {
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 3.5s;
+}
+
 @keyframes typing {
   from { width: 0 }
   to { width: 100% }
@@ -75,12 +81,14 @@
   50% { border-color: var(--color-gray-300) }
 }
 
-.fade {
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-  animation-delay: 3.5s;
-}
-
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+.swiper-horizontal .swiper-button-prev {
+  left: -10px !important;
+}
+
+.swiper-horizontal .swiper-button-next {
+  right: -10px !important;
 }
