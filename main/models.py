@@ -241,7 +241,7 @@ class Experience(Basic, BaseModelPublished, BaseModelOrderby):
     )
 
     def __str__(self):
-        return f'{self.company}: {self.position} - {self.is_current}'
+        return f'{self.company}: {self.position}'
 
     class Meta:
         ordering = ['-start_date']
@@ -268,8 +268,8 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         null=True,
         blank=True,
         on_delete=models.SET_NULL,
-        help_text=_('Загрузите изображение для проекта'),
-        verbose_name=_('Изображение')
+        help_text=_('Загрузите главное изображение для проекта'),
+        verbose_name=_('Главное изображение')
     )
     technologies = models.ManyToManyField(
         Skill,
@@ -292,7 +292,38 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         verbose_name=_('Ссылка на Live-Demo')
     )
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         ordering = ['-created_at']
         verbose_name = _('Проект')
         verbose_name_plural = _('Проекты')
+
+
+class ProjectImage(Basic, BaseModelPublished):
+    project = models.ForeignKey(
+        Project,
+        related_name='images',
+        on_delete=models.CASCADE,
+    )
+    image = FilerImageField(
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        verbose_name=_('Изображение')
+    )
+
+    def __str__(self):
+        if not self.id:
+            return f'Новое изображение для {self.project.title}'
+
+        ids = list(self.project.images.values_list('id', flat=True))
+        index = ids.index(self.id) + 1 if ids else None
+
+        return f'{index} для {self.project.title}'
+
+    class Meta:
+        ordering = ['created_at']
+        verbose_name = _('Фотография')
+        verbose_name_plural = _('Галерея проекта')
