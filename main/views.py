@@ -70,7 +70,10 @@ def ResultEncoder(obj):
             'title': obj.title,
             'slug': obj.slug,
             'description': obj.description,
-            'image': obj.image.url if obj.image else None,
+            'main_image': obj.image.url if obj.image else None,
+            'images': [
+                img.image.url for img in obj.images.all() if img.image
+            ],
             'technologies': [{
                 'category': {
                     'name': value.category.name
