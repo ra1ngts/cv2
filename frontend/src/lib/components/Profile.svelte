@@ -4,12 +4,14 @@
 
 <div class="grid grid-cols-2 gap-4">
   <div>
-    <div class="text-5xl text-gray-300 font-bold">
-      {stateCtx.profile.name}
-      {stateCtx.profile.lastname}
+    <div class="w-fit">
+      <div class="text-5xl text-gray-300 font-bold typing-text">
+        {stateCtx.profile.name}
+        {stateCtx.profile.lastname}
+      </div>
     </div>
 
-    <div class="text-lg text-gray-400 pt-2">
+    <div class="text-lg text-gray-400 pt-2 fade">
       {stateCtx.profile.occupation}
     </div>
 
