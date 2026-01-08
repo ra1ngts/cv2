@@ -5,7 +5,8 @@ from .models import (
     SkillCategory,
     Skill,
     Experience,
-    Project
+    Project,
+    ProjectImage
 )
 
 
@@ -89,8 +90,15 @@ class ExperienceAdmin(admin.ModelAdmin):
     ordering = ('order_by',)
 
 
+class ProjectImageInline(admin.StackedInline):
+    model = ProjectImage
+    extra = 1
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    inlines = [ProjectImageInline]
+
     list_display = (
         'id',
         'order_by',
