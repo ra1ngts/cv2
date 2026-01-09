@@ -30,7 +30,11 @@ class BaseModelPublished(models.Model):
 
 
 class BaseModelOrderby(models.Model):
-    order_by = models.FloatField(verbose_name=_('Порядок'), default=1.0)
+    order_by = models.FloatField(
+        help_text=_('Введите порядок в цифровых значениях: например 1.2'),
+        verbose_name=_('Порядок'),
+        default=1.0
+    )
 
     class Meta:
         abstract = True
