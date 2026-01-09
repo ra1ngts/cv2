@@ -264,13 +264,6 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         help_text=_('Введите описание для проекта'),
         verbose_name=_('Описание')
     )
-    image = FilerImageField(
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        help_text=_('Загрузите главное изображение для проекта'),
-        verbose_name=_('Главное изображение')
-    )
     technologies = models.ManyToManyField(
         Skill,
         related_name='projects',
