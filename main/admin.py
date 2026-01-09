@@ -111,6 +111,7 @@ class ProjectAdmin(admin.ModelAdmin):
     )
     list_filter = (
         'title',
+        'is_published'
     )
     prepopulated_fields = {'slug': ('title',)}
     ordering = ('-order_by',)
