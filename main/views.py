@@ -1,5 +1,6 @@
 import os
 
+from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
@@ -70,7 +71,6 @@ def ResultEncoder(obj):
             'title': obj.title,
             'slug': obj.slug,
             'description': obj.description,
-            'main_image': obj.image.url if obj.image else None,
             'images': [
                 img.image.url for img in obj.images.all() if img.image
             ],
@@ -97,11 +97,13 @@ def index(request):
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.prefetch_related('skills__image').all()],
                 # 'skills': Skill.objects.select_related('category', 'image').all(),
                 'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
-                'projects': [ResultEncoder(item) for item in Project.objects.prefetch_related(
-                    'technologies',
-                    'technologies__category',
-                    'technologies__image',
-                ).select_related('image').filter(is_published=True)]
+                'projects': [ResultEncoder(item) for item in Project.objects.filter(is_published=True).prefetch_related(
+                    Prefetch(
+                        'technologies',
+                        queryset=Skill.objects.select_related('category')
+                    ),
+                    'images'
+                ).order_by('-created_at')]
             })
 
         except Exception as e:
@@ -127,7 +129,3 @@ def index(request):
     }
 
     return render(request, 'main/index.html', ctx)
-
-
-
-
