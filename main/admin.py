@@ -78,7 +78,7 @@ class ExperienceAdmin(admin.ModelAdmin):
         'position',
         'is_current',
         'start_date',
-        'end_date',
+        'end_date'
     )
     list_display_links = (
         'id',
@@ -103,6 +103,7 @@ class ProjectAdmin(admin.ModelAdmin):
         'id',
         'order_by',
         'title',
+        'is_published'
     )
     list_display_links = (
         'id',
@@ -112,4 +113,4 @@ class ProjectAdmin(admin.ModelAdmin):
         'title',
     )
     prepopulated_fields = {'slug': ('title',)}
-    ordering = ('order_by',)
+    ordering = ('-order_by',)
