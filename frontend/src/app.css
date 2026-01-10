@@ -2,13 +2,42 @@
 @source "../../**/*.svelte";
 @source "./lib/**/*.svelte";
 
-@theme {
-  --font-roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/fonts/Roboto-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
   :root {
-     scroll-behavior: smooth;
+    --font-roboto: "Roboto", ui-sans-serif, system-ui, sans-serif;
+    scroll-behavior: smooth;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -21,38 +50,6 @@
     font-family: var(--font-roboto);
     @apply antialiased bg-gradient-to-t from-gray-950 to-gray-900 text-gray-400;
   }
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-SemiBold.ttf') format('truetype');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Roboto';
-  src: url('../fonts/Roboto-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
 }
 
 .typing-text {
