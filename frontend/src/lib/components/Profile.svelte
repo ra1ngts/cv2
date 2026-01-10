@@ -4,15 +4,25 @@
 
 <div class="grid grid-cols-2 gap-4">
   <div>
-    <div class="w-fit">
-      <div class="text-5xl text-gray-300 font-bold typing-text">
-        {stateCtx.profile.name}
-        {stateCtx.profile.lastname}
+    <div class="flex flex-row items-stretch gap-4 h-24">
+      <div class="shrink-0">
+        <img
+          src={stateCtx.profile.image}
+          alt={stateCtx.profile.name}
+          class="h-full object-cover aspect-square rounded-full"
+        />
       </div>
-    </div>
 
-    <div class="text-lg text-gray-400 pt-2 fade">
-      {stateCtx.profile.occupation}
+      <div class="w-fit flex flex-col justify-center items-start gap-4">
+        <div class="text-5xl text-gray-300 font-bold typing-text">
+          {stateCtx.profile.name}
+          {stateCtx.profile.lastname}
+        </div>
+
+        <div class="text-lg text-gray-400 fade">
+          {stateCtx.profile.occupation}
+        </div>
+      </div>
     </div>
 
     <div
