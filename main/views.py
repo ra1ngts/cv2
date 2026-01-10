@@ -11,7 +11,8 @@ from .models import (
     SkillCategory,
     Skill,
     Experience,
-    Project
+    Project,
+    ProjectImage
 )
 from .utils import get_svelte_manifest
 
@@ -93,14 +94,17 @@ def index(request):
                 'status': 'success',
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.prefetch_related('skills__image').all()],
-                # 'skills': Skill.objects.select_related('category', 'image').all(),
+                'skills': Skill.objects.select_related('category', 'image').all(),
                 'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
                 'projects': [ResultEncoder(item) for item in Project.objects.filter(is_published=True).prefetch_related(
                     Prefetch(
                         'technologies',
                         queryset=Skill.objects.select_related('category')
                     ),
-                    'images'
+                    Prefetch(
+                        'images',
+                        queryset=ProjectImage.objects.filter(is_published=True),
+                    )
                 ).order_by('order_by')]
             })
 
