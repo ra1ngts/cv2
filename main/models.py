@@ -31,7 +31,7 @@ class BaseModelPublished(models.Model):
 
 class BaseModelOrderby(models.Model):
     order_by = models.FloatField(
-        help_text=_('Введите порядок в цифровых значениях: например 1.2'),
+        help_text=_('Используйте дробные числа (например, 1.2), чтобы вставить запись между целыми числами без переименования остальных'),
         verbose_name=_('Порядок'),
         default=1.0
     )
@@ -99,28 +99,28 @@ class Profile(Basic):
         null=True,
         blank=True,
         max_length=500,
-        help_text=_('Введите ссылку на WhatsApp'),
+        help_text=_('Введите ссылку на профиль WhatsApp'),
         verbose_name=_('WhatsApp')
     )
     telegram = models.URLField(
         null=True,
         blank=True,
         max_length=500,
-        help_text=_('Введите ссылку на Telegram'),
+        help_text=_('Введите ссылку на профиль Telegram'),
         verbose_name=_('Telegram')
     )
     linkedin = models.URLField(
         null=True,
         blank=True,
         max_length=500,
-        help_text=_('Введите ссылку на LinkedIn'),
+        help_text=_('Введите ссылку на профиль LinkedIn'),
         verbose_name=_('LinkedIn')
     )
     github = models.URLField(
         null=True,
         blank=True,
         max_length=500,
-        help_text=_('Введите ссылку на GitHub'),
+        help_text=_('Введите ссылку на профиль GitHub'),
         verbose_name=_('GitHub')
     )
     cv = models.URLField(
@@ -234,8 +234,8 @@ class Experience(Basic, BaseModelPublished, BaseModelOrderby):
     )
     is_current = models.BooleanField(
         default=False,
-        help_text=_('Работаете ли в компании в данный момент?'),
-        verbose_name=_('Работа в данный момент')
+        help_text=_('Работаете ли в компании в настоящее время?'),
+        verbose_name=_('Работа в настоящее время')
     )
     achievements = models.TextField(
         null=True,
@@ -265,7 +265,7 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
     description = models.TextField(
         null=True,
         blank=True,
-        help_text=_('Введите описание для проекта'),
+        help_text=_('Введите описание проекта'),
         verbose_name=_('Описание')
     )
     technologies = models.ManyToManyField(
