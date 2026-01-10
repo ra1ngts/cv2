@@ -14,7 +14,7 @@ from .models import (
 
 
 @admin.register(Profile)
-class ProfileAdmin(admin.ModelAdmin):
+class ProfileAdmin(TabbedModelAdmin):
     list_display = (
         'id',
         'name',
@@ -29,6 +29,37 @@ class ProfileAdmin(admin.ModelAdmin):
         'id',
         'name'
     )
+
+    tab_main = (
+        (None, {
+            'fields': (
+                'name',
+                'lastname',
+                'image',
+                'occupation',
+                'description'
+            )
+        }),
+    )
+
+    tab_contacts = (
+        (None, {
+            'fields': (
+                'phone',
+                'email',
+                'whatsapp',
+                'telegram',
+                'linkedin',
+                'github',
+                'cv'
+            )
+        }),
+    )
+
+    tabs = [
+        (_('Личные данные'), tab_main),
+        (_('Контактные данные'), tab_contacts),
+    ]
 
 
 @admin.register(SkillCategory)
