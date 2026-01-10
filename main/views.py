@@ -69,7 +69,6 @@ def ResultEncoder(obj):
         return {
             'id': obj.id,
             'title': obj.title,
-            'slug': obj.slug,
             'description': obj.description,
             'images': [
                 img.image.url for img in obj.images.all() if img.image
@@ -92,7 +91,6 @@ def index(request):
         try:
             return JsonResponse({
                 'status': 'success',
-                # 'title': _(''),
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.prefetch_related('skills__image').all()],
                 # 'skills': Skill.objects.select_related('category', 'image').all(),
@@ -103,7 +101,7 @@ def index(request):
                         queryset=Skill.objects.select_related('category')
                     ),
                     'images'
-                ).order_by('-created_at')]
+                ).order_by('order_by')]
             })
 
         except Exception as e:
