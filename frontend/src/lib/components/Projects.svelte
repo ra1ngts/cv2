@@ -7,6 +7,12 @@
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
 
+  import { Fancybox } from '@fancyapps/ui/dist/fancybox/';
+  import '@fancyapps/ui/dist/fancybox/fancybox.css';
+
+  import { Carousel } from '@fancyapps/ui/dist/carousel/';
+  import '@fancyapps/ui/dist/carousel/carousel.css';
+
   onMount(() => {
     const swiper = new Swiper('.swiper', {
       modules: [Navigation, Pagination],
@@ -21,6 +27,19 @@
         prevEl: '.swiper-button-prev',
       },
     });
+
+    Fancybox.bind("[data-fancybox^='gallery-']", {
+      hideScrollbar: true,
+      wheel: 'slide',
+      backdropClick: 'close',
+      Hash: false,
+    });
+
+    const carouselInstances = Array.from(document.querySelectorAll('.f-carousel')).map((el) => {
+      return Carousel(el, {
+        infinite: true,
+      });
+    });
   });
 </script>
 
@@ -31,14 +50,18 @@
         <div class="grid grid-cols-{item.images.length === 0 ? '1' : '4'} gap-4 px-10">
           {#if item.images.length > 0}
             <div class="col-span-{item.images.length === 1 ? '2' : '1'} h-[350px]">
-              <img src={item.images[0]} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
+              <a href={item.images[0]} data-fancybox="gallery-{item.id}">
+                <img src={item.images[0]} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
+              </a>
             </div>
 
             {#if item.images.length > 1}
               <div class="col-span-1 flex flex-col gap-4 h-[350px] overflow-hidden">
                 {#each item.images.slice(1, 4) as img}
-                  <div class="flex-1 min-h-0">
-                    <img src={img} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
+                  <div class="flex-1 min-h-0 f-carousel__slide">
+                    <a href={img} data-fancybox="gallery-{item.id}">
+                      <img src={img} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
+                    </a>
                   </div>
                 {/each}
               </div>
