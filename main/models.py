@@ -261,7 +261,6 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         help_text=_('Введите название проекта'),
         verbose_name=_('Название проекта')
     )
-    slug = models.SlugField(unique=True)
     description = models.TextField(
         null=True,
         blank=True,
@@ -293,7 +292,7 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         return self.title
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['order_by']
         verbose_name = _('Проект')
         verbose_name_plural = _('Проекты')
 
