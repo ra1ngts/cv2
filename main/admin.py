@@ -1,4 +1,7 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+
+from tabbed_admin import TabbedModelAdmin
 
 from .models import (
     Profile,
@@ -96,7 +99,7 @@ class ProjectImageInline(admin.StackedInline):
 
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
+class ProjectAdmin(TabbedModelAdmin):
     inlines = [ProjectImageInline]
 
     list_display = (
@@ -113,5 +116,23 @@ class ProjectAdmin(admin.ModelAdmin):
         'title',
         'is_published'
     )
-    prepopulated_fields = {'slug': ('title',)}
-    ordering = ('-order_by',)
+    ordering = ('order_by',)
+
+    tab_main = (
+        (None, {
+            'fields': (
+                'order_by',
+                'title',
+                'is_published'
+            )
+        }),
+    )
+
+    tab_image = (
+        ProjectImageInline,
+    )
+
+    tabs = [
+        (_('Настройки'), tab_main),
+        (_('Изображения'), tab_image),
+    ]
