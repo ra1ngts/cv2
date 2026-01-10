@@ -98,13 +98,14 @@ class SkillAdmin(admin.ModelAdmin):
     )
     list_filter = (
         'category',
-        'name'
+        'name',
+        'level'
     )
     ordering = ('order_by',)
 
 
 @admin.register(Experience)
-class ExperienceAdmin(admin.ModelAdmin):
+class ExperienceAdmin(TabbedModelAdmin):
     list_display = (
         'id',
         'order_by',
@@ -122,6 +123,35 @@ class ExperienceAdmin(admin.ModelAdmin):
         'company',
     )
     ordering = ('order_by',)
+    filter_horizontal = ('skills',)
+
+    tab_main = (
+        (None, {
+            'fields': (
+                'order_by',
+                'company',
+                'company_url',
+                'position',
+                'start_date',
+                'end_date',
+                'is_current',
+                'achievements'
+            )
+        }),
+    )
+
+    tab_skills = (
+        (None, {
+            'fields': (
+                'skills',
+            )
+        }),
+    )
+
+    tabs = [
+        (_('Данные о компании'), tab_main),
+        (_('Технологический стек'), tab_skills),
+    ]
 
 
 class ProjectImageInline(admin.StackedInline):
