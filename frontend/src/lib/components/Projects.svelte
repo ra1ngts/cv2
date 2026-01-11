@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import { stateCtx } from '../../store.svelte';
+
   import Swiper from 'swiper';
   import { Navigation, Pagination } from 'swiper/modules';
   import 'swiper/css';
@@ -14,7 +15,7 @@
   import '@fancyapps/ui/dist/carousel/carousel.css';
 
   onMount(() => {
-    const swiper = new Swiper('.swiper', {
+    const swiperProjects = new Swiper('.swiper-projects', {
       modules: [Navigation, Pagination],
       spaceBetween: 30,
       loop: false,
@@ -28,7 +29,15 @@
       },
     });
 
-    Fancybox.bind("[data-fancybox^='gallery-']", {
+    if (stateCtx.skills && stateCtx.skills.length > 0) {
+      setTimeout(() => {
+        if (swiperProjects) {
+          swiperProjects.update();
+        }
+      }, 100);
+    }
+
+    Fancybox.bind("[data-fancybox^='projects-gallery-']", {
       hideScrollbar: true,
       wheel: 'slide',
       backdropClick: 'close',
@@ -47,14 +56,14 @@
   class="projects pt-4 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
         hover:shadow-2xl hover:shadow-cyan-950/20 group block"
 >
-  <div class="swiper">
+  <div class="swiper swiper-projects">
     <div class="swiper-wrapper">
       {#each stateCtx.projects as item}
         <div class="swiper-slide">
           <div class="grid grid-cols-{item.images.length === 0 ? '1' : '4'} gap-4 px-10">
             {#if item.images.length > 0}
               <div class="col-span-{item.images.length === 1 ? '2' : '1'} h-[350px]">
-                <a href={item.images[0]} data-fancybox="gallery-{item.id}">
+                <a href={item.images[0]} data-fancybox="projects-gallery-{item.id}">
                   <img src={item.images[0]} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
                 </a>
               </div>
@@ -63,7 +72,7 @@
                 <div class="col-span-1 flex flex-col gap-4 h-[350px] overflow-hidden">
                   {#each item.images.slice(1, 4) as img}
                     <div class="flex-1 min-h-0 f-carousel__slide">
-                      <a href={img} data-fancybox="gallery-{item.id}">
+                      <a href={img} data-fancybox="projects-gallery-{item.id}">
                         <img src={img} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
                       </a>
                     </div>
