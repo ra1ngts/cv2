@@ -101,7 +101,11 @@
                 </div>
               </div>
 
-              <div class="text-sm flex-1 overflow-y-auto">
+              <div
+                class="text-sm pe-1 flex-1 overflow-y-auto scrollbar-gutter-stable
+                [scrollbar-color:theme(colors.gray.500)_theme(colors.gray.800)]
+                [scrollbar-width:thin]"
+              >
                 {@html item.description}
               </div>
 
