@@ -188,6 +188,13 @@ class Skill(Basic, BaseModelOrderby):
         help_text=_('Загрузите иконку навыка'),
         verbose_name=_('Иконка навыка')
     )
+    skill_url = models.URLField(
+        null=True,
+        blank=True,
+        max_length=500,
+        help_text=_('Введите ссылку на сертификат'),
+        verbose_name=_('Ссылка на сертификат')
+    )
 
     def __str__(self):
         return f'{self.category.name}: {self.name}'
