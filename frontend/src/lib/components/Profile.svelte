@@ -38,7 +38,7 @@
       }, 100);
     }
 
-    Fancybox.bind("[data-fancybox^='gallery-']", {
+    Fancybox.bind("[data-fancybox^='skills-gallery-']", {
       hideScrollbar: true,
       wheel: 'slide',
       backdropClick: 'close',
@@ -147,7 +147,7 @@
               hover:shadow-2xl hover:shadow-cyan-950/30"
             >
               <div class="h-[350px]">
-                <a href={item.image} data-fancybox="gallery-{item.id}">
+                <a href={item.image} data-fancybox="skills-gallery-{item.id}">
                   <img src={item.image} alt={item.name} class="w-full h-full object-cover rounded-2xl" />
                 </a>
               </div>
