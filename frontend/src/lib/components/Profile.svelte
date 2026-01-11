@@ -1,5 +1,56 @@
 <script>
   import { stateCtx } from '../../store.svelte';
+
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+
+  import { Fancybox } from '@fancyapps/ui/dist/fancybox/';
+  import '@fancyapps/ui/dist/fancybox/fancybox.css';
+
+  import { Carousel } from '@fancyapps/ui/dist/carousel/';
+  import '@fancyapps/ui/dist/carousel/carousel.css';
+
+  $effect(() => {
+    const swiperSkills = new Swiper('.swiper-skills', {
+      modules: [Navigation, Pagination],
+      slidesPerView: 3,
+      spaceBetween: 30,
+      watchOverflow: true,
+      loop: false,
+      pagination: {
+        el: '.swiper-pagination-skills',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    if (stateCtx.skills && stateCtx.skills.length > 0) {
+      setTimeout(() => {
+        if (swiperSkills) {
+          swiperSkills.update();
+        }
+      }, 100);
+    }
+
+    Fancybox.bind("[data-fancybox^='gallery-']", {
+      hideScrollbar: true,
+      wheel: 'slide',
+      backdropClick: 'close',
+      Hash: false,
+    });
+
+    const carouselInstances = Array.from(document.querySelectorAll('.f-carousel')).map((el) => {
+      return Carousel(el, {
+        infinite: true,
+      });
+    });
+  });
 </script>
 
 <div class="grid grid-cols-2 gap-4">
@@ -83,4 +134,43 @@
   <div class="text-gray-400">
     {stateCtx.profile.description}
   </div>
+</div>
+
+<div class="skills mt-4 pt-4">
+  <div class="swiper swiper-skills">
+    <div class="swiper-wrapper">
+      {#if stateCtx.skills.length > 0}
+        {#each stateCtx.skills as item}
+          <div class="swiper-slide">
+            <div
+              class="flex flex-col gap-4 px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
+              hover:shadow-2xl hover:shadow-cyan-950/30"
+            >
+              <div class="h-[350px]">
+                <a href={item.image} data-fancybox="gallery-{item.id}">
+                  <img src={item.image} alt={item.name} class="w-full h-full object-cover rounded-2xl" />
+                </a>
+              </div>
+
+              <div class="text-gray-400">
+                <a
+                  href={item.category.name === 'Certificate' ? '#' : 'javascript:void(0)'}
+                  class={item.category.name === 'Certificate'
+                    ? 'transition-all duration-300 hover:text-cyan-200'
+                    : 'pointer-events-none cursor-default'}
+                >
+                  {item.name}
+                </a>
+              </div>
+            </div>
+          </div>
+        {/each}
+      {/if}
+    </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <div class="swiper-pagination-skills"></div>
 </div>
