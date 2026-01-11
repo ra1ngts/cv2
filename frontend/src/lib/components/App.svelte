@@ -22,6 +22,7 @@
     if (data.status === 'success') {
       stateCtx.profile = data.profile;
       stateCtx.categories = data.categories;
+      stateCtx.skills = data.skills;
       stateCtx.experience = data.experience;
       stateCtx.projects = data.projects;
       console.log('index (GET) successfully sending:', data);
