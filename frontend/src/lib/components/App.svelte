@@ -6,29 +6,32 @@
   import Projects from './Projects.svelte';
 
   const getCtx = async () => {
-    const response = await fetch('/', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
-    });
+    try {
+      const response = await fetch('/', {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json',
+        },
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-    if (data.status === 'success') {
-      stateCtx.profile = data.profile;
-      stateCtx.categories = data.categories;
-      stateCtx.skills = data.skills;
-      stateCtx.experience = data.experience;
-      stateCtx.projects = data.projects;
-      console.log('index (GET) successfully sending:', data);
-    } else {
-      // TODO: добавить обработку ошибок с бэка
-      console.error('index (GET) sending error:', data);
+      if (data.status === 'success') {
+        stateCtx.profile = data.profile;
+        stateCtx.categories = data.categories;
+        stateCtx.skills = data.skills;
+        stateCtx.experience = data.experience;
+        stateCtx.projects = data.projects;
+        console.log(`index (GET) successfully sending: ${data}`);
+      } else {
+        console.error(`index (GET) sending error: ${data}`);
+      }
+    } catch (error) {
+      console.error(`Fetch error ${error}`);
     }
   };
 
@@ -72,7 +75,7 @@
         class="transition-colors duration-300 hover:text-cyan-200 text-xl font-semibold {stateCtx.activeSection ===
         section.id
           ? 'text-cyan-400'
-          : 'text-gray-500'}"
+          : 'text-gray-500 cursor-pointer'}"
       >
         {section.label}
       </button>
