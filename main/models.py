@@ -144,7 +144,7 @@ class Profile(Basic):
         verbose_name_plural = _('Личная информация')
 
 
-class SkillCategory(Basic, BaseModelOrderby):
+class SkillCategory(Basic, BaseModelPublished, BaseModelOrderby):
     name = models.CharField(
         null=True,
         blank=True,
@@ -161,7 +161,7 @@ class SkillCategory(Basic, BaseModelOrderby):
         verbose_name_plural = _('Категория навыков')
 
 
-class Skill(Basic, BaseModelOrderby):
+class Skill(Basic, BaseModelPublished, BaseModelOrderby):
     category = models.ForeignKey(
         SkillCategory,
         on_delete=models.CASCADE,
