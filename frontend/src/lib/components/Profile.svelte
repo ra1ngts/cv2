@@ -226,6 +226,8 @@
             </div>
           {/if}
         {/each}
+      {:else}
+        <p>No skills available</p>
       {/if}
     </div>
 
