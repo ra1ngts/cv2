@@ -189,7 +189,7 @@
                 class="group flex flex-col gap-4 px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
                 hover:shadow-2xl hover:shadow-cyan-950/30"
               >
-                <div class="h-[250px] overflow-hidden rounded-2xl bg-white">
+                <div class="h-64 overflow-hidden rounded-2xl bg-white">
                   <a href={skill.image} data-fancybox="skills-gallery-{skill.id}">
                     <img src={skill.image} alt={skill.name} class="w-full h-full object-contain" />
                   </a>
