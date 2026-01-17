@@ -39,7 +39,7 @@ def ResultEncoder(obj):
         return {
             'id': obj.id,
             'name': obj.name,
-            'skills': [ResultEncoder(item) for item in obj.skills.all()],
+            'skills': [ResultEncoder(item) for item in obj.skills.all()]
         }
 
     if isinstance(obj, Skill):
@@ -50,7 +50,8 @@ def ResultEncoder(obj):
             },
             'name': obj.name,
             'level': obj.level,
-            'image': obj.image.url if obj.image else None
+            'image': obj.image.url if obj.image else None,
+            'skill_url': obj.skill_url
         }
 
     if isinstance(obj, Experience):
@@ -83,7 +84,7 @@ def ResultEncoder(obj):
                 'image': value.image.url if value.image else None
             } for value in obj.technologies.all()],
             'github_url': obj.github_url,
-            'live_demo_url': obj.live_demo_url,
+            'live_demo_url': obj.live_demo_url
         }
 
 
@@ -93,8 +94,8 @@ def index(request):
             return JsonResponse({
                 'status': 'success',
                 'profile': ResultEncoder(Profile.get_profile_data()),
-                'categories': [ResultEncoder(item) for item in SkillCategory.objects.prefetch_related('skills__image').all()],
-                'skills': [ResultEncoder(skill) for skill in Skill.objects.all()],
+                'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
+                'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
                 'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
                 'projects': [ResultEncoder(item) for item in Project.objects.filter(is_published=True).prefetch_related(
                     Prefetch(
