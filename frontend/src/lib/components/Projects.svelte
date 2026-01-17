@@ -62,14 +62,14 @@
         <div class="swiper-slide">
           <div class="grid grid-cols-{item.images.length === 0 ? '1' : '4'} gap-4 px-10">
             {#if item.images.length > 0}
-              <div class="col-span-{item.images.length === 1 ? '2' : '1'} h-[350px]">
+              <div class="col-span-{item.images.length === 1 ? '2' : '1'} h-80">
                 <a href={item.images[0]} data-fancybox="projects-gallery-{item.id}">
                   <img src={item.images[0]} alt={item.title} class="w-full h-full object-cover rounded-2xl" />
                 </a>
               </div>
 
               {#if item.images.length > 1}
-                <div class="col-span-1 flex flex-col gap-4 h-[350px] overflow-hidden">
+                <div class="col-span-1 flex flex-col gap-4 h-80 overflow-hidden">
                   {#each item.images.slice(1, 4) as img}
                     <div class="flex-1 min-h-0 f-carousel__slide">
                       <a href={img} data-fancybox="projects-gallery-{item.id}">
@@ -81,7 +81,7 @@
               {/if}
             {/if}
 
-            <div class="col-span-2 flex flex-col h-[350px]">
+            <div class="col-span-2 flex flex-col h-80">
               <div
                 class="grid grid-cols-[1fr_auto_auto] py-2 items-center gap-4 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
               >
