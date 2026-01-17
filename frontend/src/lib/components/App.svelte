@@ -26,12 +26,12 @@
         stateCtx.skills = data.skills;
         stateCtx.experience = data.experience;
         stateCtx.projects = data.projects;
-        console.log(`index (GET) successfully sending: ${data}`);
+        console.log('index (GET) successfully sending:', data);
       } else {
-        console.error(`index (GET) sending error: ${data}`);
+        console.error('index (GET) sending error:', data);
       }
     } catch (error) {
-      console.error(`Fetch error ${error}`);
+      console.error('Fetch error:', error);
     }
   };
 
