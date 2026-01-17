@@ -141,29 +141,29 @@
     <div class="swiper-wrapper">
       {#if stateCtx.skills.length > 0}
         {#each stateCtx.skills as item}
-          <div class="swiper-slide">
-            <div
-              class="flex flex-col gap-4 px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
-              hover:shadow-2xl hover:shadow-cyan-950/30"
-            >
-              <div class="h-[350px]">
-                <a href={item.image} data-fancybox="skills-gallery-{item.id}">
-                  <img src={item.image} alt={item.name} class="w-full h-full object-cover rounded-2xl" />
-                </a>
-              </div>
+          {#if item.category.name === 'Certificate'}
+            <div class="swiper-slide">
+              <div
+                class="flex flex-col gap-4 px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
+                hover:shadow-2xl hover:shadow-cyan-950/30"
+              >
+                <div class="h-[350px]">
+                  <a href={item.image} data-fancybox="skills-gallery-{item.id}">
+                    <img src={item.image} alt={item.name} class="w-full h-full object-cover rounded-2xl" />
+                  </a>
+                </div>
 
-              <div class="text-gray-400">
-                <a
-                  href={item.category.name === 'Certificate' ? '#' : 'javascript:void(0)'}
-                  class={item.category.name === 'Certificate'
-                    ? 'transition-all duration-300 hover:text-cyan-200'
-                    : 'pointer-events-none cursor-default'}
-                >
-                  {item.name}
-                </a>
+                <div class="text-gray-400">
+                  <a
+                    href={item.skill_url}
+                    class="transition-all duration-300 hover:text-cyan-200 {item.skill_url ? 'cursor-pointer' : ''}"
+                  >
+                    {item.name}
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
+          {/if}
         {/each}
       {/if}
     </div>
