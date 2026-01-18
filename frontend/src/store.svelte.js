@@ -5,6 +5,7 @@ export const stateCtx = $state({
     skills: [],
     experience: [],
     projects: [],
+    form: {},
     activeSection: 'about',
     sections: [
         { id: 'about', label: 'About' },
