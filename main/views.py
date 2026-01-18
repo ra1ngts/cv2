@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
 from cv2 import settings
+from .forms import ContactsForm
 from .models import (
     Profile,
     SkillCategory,
@@ -91,6 +92,23 @@ def ResultEncoder(obj):
 def index(request):
     if request.headers.get('Accept') == 'application/json':
         try:
+            if request.method == 'POST':
+                form = ContactsForm(request.POST)
+
+                if form.is_valid():
+                    return JsonResponse({
+                        'status': 'success',
+                        'message': _('Ваше сообщение успешно отправлено')
+                    })
+
+                else:
+                    return JsonResponse({
+                        'status': 'error',
+                        'errors': form.errors
+                    })
+
+            form = ContactsForm()
+
             return JsonResponse({
                 'status': 'success',
                 'profile': ResultEncoder(Profile.get_profile_data()),
@@ -106,7 +124,17 @@ def index(request):
                         'images',
                         queryset=ProjectImage.objects.filter(is_published=True),
                     )
-                ).order_by('order_by')]
+                ).order_by('order_by')],
+                'form': {
+                    field.name: {
+                        'label': str(field.label),
+                        'required': field.field.required,
+                        'input_type': getattr(field.field.widget, 'input_type', 'textarea'),
+                        'initial': field.value() if field.value else '',
+                        'help_text': str(field.field.help_text),
+                        'choices': getattr(field.field, 'choices', None)
+                    } for field in form
+                }
             })
 
         except Exception as e:
