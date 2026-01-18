@@ -4,6 +4,7 @@
   import Profile from './Profile.svelte';
   import Experience from './Experience.svelte';
   import Projects from './Projects.svelte';
+  import Contacts from './Contacts.svelte';
 
   const getCtx = async () => {
     try {
@@ -26,6 +27,7 @@
         stateCtx.skills = data.skills;
         stateCtx.experience = data.experience;
         stateCtx.projects = data.projects;
+        stateCtx.form = data.form;
         console.log('index (GET) successfully sending:', data);
       } else {
         console.error('index (GET) sending error:', data);
@@ -103,6 +105,7 @@
   <section id="contacts" class="py-20 scroll-mt-20">
     <h2 class="text-4xl text-gray-500 pb-4">Contacts</h2>
     <hr class="py-2 border-gray-500/50 opacity-50" />
+    <Contacts />
   </section>
 
   <div class="flex py-4 items-center justify-center text-gray-800 gap-2">
