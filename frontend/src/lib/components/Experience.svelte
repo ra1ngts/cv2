@@ -26,17 +26,19 @@
           {#if entry.skills && entry.skills.length > 0}
             <div class="flex flex-wrap flex-row gap-4">
               {#each entry.skills as skill}
-                <div
-                  class="flex gap-2 items-center rounded-2xl px-4 py-1 group-hover:text-cyan-200 bg-gray-900 group-hover:bg-gray-800"
-                >
-                  {#if skill.image}
-                    <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
-                  {/if}
+                {#if skill.category.name !== 'Certificate'}
+                  <div
+                    class="flex gap-2 items-center rounded-2xl px-4 py-1 group-hover:text-cyan-200 bg-gray-900 group-hover:bg-gray-800"
+                  >
+                    {#if skill.image}
+                      <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+                    {/if}
 
-                  <div class="text-sm font-semibold">
-                    {skill.name}
+                    <div class="text-sm font-semibold">
+                      {skill.name}
+                    </div>
                   </div>
-                </div>
+                {/if}
               {/each}
             </div>
           {/if}
