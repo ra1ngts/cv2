@@ -48,7 +48,13 @@
 
   body {
     font-family: var(--font-roboto);
-    @apply antialiased bg-gradient-to-t from-gray-950 to-gray-900 text-gray-400;
+    @apply antialiased bg-linear-to-t from-gray-950 to-gray-900 text-gray-400;
+  }
+}
+
+@layer components {
+  .container {
+    @apply w-full mx-auto;
   }
 }
 
