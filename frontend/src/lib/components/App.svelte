@@ -69,23 +69,25 @@
   }
 </script>
 
-<div class="fixed top-0 z-10 w-full bg-linear-to-b from-gray-950/80 to-gray-800/40 backdrop-blur-md px-10 py-4">
-  <div class="grid grid-cols-4 gap-4 items-center">
-    {#each stateCtx.sections as section}
-      <button
-        onclick={() => scrollTo(section.id)}
-        class="transition-colors duration-300 hover:text-cyan-200 text-xl font-semibold {stateCtx.activeSection ===
-        section.id
-          ? 'text-cyan-400'
-          : 'text-gray-500 cursor-pointer'}"
-      >
-        {section.label}
-      </button>
-    {/each}
+<div class="fixed top-0 z-10 w-full bg-linear-to-b from-gray-950/80 to-gray-800/40 backdrop-blur-md">
+  <div class="container p-4">
+    <div class="grid grid-cols-4 gap-4 items-center">
+      {#each stateCtx.sections as section}
+        <button
+          onclick={() => scrollTo(section.id)}
+          class="transition-colors duration-300 hover:text-cyan-200 text-xl font-semibold {stateCtx.activeSection ===
+          section.id
+            ? 'text-cyan-400'
+            : 'text-gray-500 cursor-pointer'}"
+        >
+          {section.label}
+        </button>
+      {/each}
+    </div>
   </div>
 </div>
 
-<div class="pt-20 px-10">
+<div class="container pt-20 px-4">
   <section id="about" class="py-20 scroll-mt-20">
     <Profile />
   </section>
@@ -114,6 +116,9 @@
         d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM12.24 15.25C13.02 15.25 13.79 14.96 14.38 14.44C14.69 14.17 15.17 14.2 15.44 14.51C15.71 14.82 15.68 15.3 15.37 15.57C14.5 16.34 13.39 16.76 12.24 16.76C9.62 16.76 7.49 14.63 7.49 12.01C7.49 9.39 9.62 7.26 12.24 7.26C13.39 7.26 14.51 7.68 15.37 8.45C15.68 8.72 15.71 9.2 15.44 9.51C15.16 9.82 14.69 9.85 14.38 9.58C13.79 9.06 13.03 8.77 12.24 8.77C10.45 8.77 8.99 10.23 8.99 12.02C8.99 13.81 10.45 15.25 12.24 15.25Z"
       />
     </svg>
-    <div>{new Date().getFullYear()} David Khurtsidze</div>
+
+    <div>
+      {new Date().getFullYear()} David Khurtsidze
+    </div>
   </div>
 </div>
