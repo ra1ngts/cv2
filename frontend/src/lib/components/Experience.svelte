@@ -28,10 +28,10 @@
               {#each entry.skills as skill}
                 {#if skill.category.name !== 'Certificate'}
                   <div
-                    class="flex gap-2 items-center rounded-2xl px-4 py-1 group-hover:text-cyan-200 bg-gray-900 group-hover:bg-gray-800"
+                    class="flex gap-2 items-center rounded-2xl px-4 py-1 transition-colors duration-300 group-hover:text-cyan-200 bg-gray-900 group-hover:bg-gray-800"
                   >
                     {#if skill.image}
-                      <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+                      <img src={skill.image} alt={skill.name} class="w-6 h-6 object-contain" />
                     {/if}
 
                     <div class="text-sm font-semibold">
