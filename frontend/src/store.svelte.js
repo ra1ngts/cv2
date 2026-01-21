@@ -22,10 +22,12 @@ export const stateCtx = $state({
     ]
 })
 
-export const contactsForm = (form) => {
+export const contactsForm = () => {
+  const form = new FormData();
   form.set('name', stateCtx.contactsData.name || '');
   form.set('subject', stateCtx.contactsData.subject || '');
   form.set('message', stateCtx.contactsData.message || '');
   form.set('email', stateCtx.contactsData.email || '');
   console.log('contactsForm has sent data:', Object.fromEntries(form.entries()));
+  return form;
 };
