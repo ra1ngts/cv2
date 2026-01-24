@@ -114,6 +114,8 @@ def index(request):
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
                 'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
+                'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend')],
+                'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend')],
                 'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
                 'projects': [ResultEncoder(item) for item in Project.objects.filter(is_published=True).prefetch_related(
                     Prefetch(
