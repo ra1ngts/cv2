@@ -1,26 +1,32 @@
 <script>
   import { stateCtx, contactsForm } from '../../store.svelte';
-  import { isEmailValidate, checkFields } from '../../utils';
+  import { isEmailValidate, markAsTouched, checkFields } from '../../utils';
 
   const ordering = ['name', 'email', 'subject', 'message'];
+
+  markAsTouched();
 
   async function handleSend() {
     stateCtx.formErrors = {};
 
+    ordering.forEach((key) => (stateCtx.touchedFields[key] = true));
+
+    checkFields();
+
     if (!stateCtx.contactsData.name) {
-      stateCtx.formErrors['name'] = 'Enter your name';
+      stateCtx.formErrors['name'] = 'Please enter your name';
     }
 
     if (!isEmailValidate(stateCtx.contactsData.email)) {
-      stateCtx.formErrors['email'] = 'example@example.com';
+      stateCtx.formErrors['email'] = 'Enter a valid email address';
     }
 
     if (!stateCtx.contactsData.subject) {
-      stateCtx.formErrors['subject'] = 'Enter a subject';
+      stateCtx.formErrors['subject'] = 'Please enter a subject';
     }
 
     if (!stateCtx.contactsData.message) {
-      stateCtx.formErrors['message'] = 'Write a message';
+      stateCtx.formErrors['message'] = 'Message is required';
     }
 
     if (Object.keys(stateCtx.formErrors).length > 0) {
@@ -66,16 +72,13 @@
       console.error('Network Error:', error);
     }
   }
-
-  $effect(() => {
-    checkFields();
-  });
 </script>
 
 <div class="space-y-4 max-w-md">
   {#each ordering as orderItem}
     {#if stateCtx.form[orderItem]}
       {@const field = stateCtx.form[orderItem]}
+      {@const showError = stateCtx.touchedFields[orderItem] && stateCtx.formErrors[orderItem]}
 
       <div class="flex flex-col">
         {#if field.input_type === 'textarea'}
@@ -83,10 +86,11 @@
             id={orderItem}
             name={orderItem}
             bind:value={stateCtx.contactsData[orderItem]}
+            onblur={() => markAsTouched(orderItem)}
+            oninput={() => stateCtx.touchedFields[orderItem] && checkFields()}
             rows="5"
-            placeholder={stateCtx.formErrors?.[orderItem] ? stateCtx.formErrors?.[orderItem] : field.label}
-            class="block w-full rounded-2xl shadow-sm transition-all duration-300 outline-none p-2.5 border {stateCtx
-              .formErrors?.[orderItem]
+            placeholder={showError ? stateCtx.formErrors[orderItem] : field.label}
+            class="block w-full rounded-2xl shadow-sm transition-all duration-300 outline-none p-2.5 border {showError
               ? 'border-red-500 focus:border-red-500 focus:ring-red-200/20'
               : 'border-gray-500 focus:border-cyan-200 focus:ring-cyan-200/10'}"
           ></textarea>
@@ -96,10 +100,11 @@
             id={orderItem}
             name={orderItem}
             bind:value={stateCtx.contactsData[orderItem]}
-            placeholder={stateCtx.formErrors?.[orderItem] ? stateCtx.formErrors?.[orderItem] : field.label}
+            onblur={() => markAsTouched(orderItem)}
+            oninput={() => stateCtx.touchedFields[orderItem] && checkFields()}
+            placeholder={showError ? stateCtx.formErrors[orderItem] : field.label}
             required={field.required}
-            class="block w-full rounded-2xl shadow-sm transition-all duration-300 outline-none p-2.5 border {stateCtx
-              .formErrors?.[orderItem]
+            class="block w-full rounded-2xl shadow-sm transition-all duration-300 outline-none p-2.5 border {showError
               ? 'border-red-500 focus:border-red-500 focus:ring-red-200/20'
               : 'border-gray-500 focus:border-cyan-200 focus:ring-cyan-200/10'}"
           />
