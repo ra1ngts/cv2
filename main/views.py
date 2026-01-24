@@ -104,7 +104,7 @@ def index(request):
                 else:
                     return JsonResponse({
                         'status': 'error',
-                        'errors': form.errors
+                        'errors': form.errors.get_json_data()
                     })
 
             form = ContactsForm()
