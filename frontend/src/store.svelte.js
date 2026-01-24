@@ -3,6 +3,8 @@ export const stateCtx = $state({
     profile: {},
     categories: [],
     skills: [],
+    frontendSkills: [],
+    backendSkills: [],
     experience: [],
     projects: [],
     form: {},
