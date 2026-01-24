@@ -60,7 +60,10 @@ ROOT_URLCONF = 'cv2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'main/templates']
+        'DIRS': [
+            BASE_DIR / 'main/templates',
+            BASE_DIR / 'templates',
+        ]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -142,7 +145,8 @@ EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = config('EMAIL_ADMIN')
+DEFAULT_FROM_EMAIL = config('DEFAULT_FROM_EMAIL')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 try:
