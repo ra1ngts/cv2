@@ -1,5 +1,6 @@
 import os
 
+from django.core.mail import send_mail
 from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -96,6 +97,19 @@ def index(request):
                 form = ContactsForm(request.POST)
 
                 if form.is_valid():
+                    name = form.cleaned_data['name']
+                    email = form.cleaned_data['email']
+                    subject = form.cleaned_data['subject']
+                    message = form.cleaned_data['message']
+
+                    send_mail(
+                        f'Новое письмо - {subject}',
+                        f'От {name} <{email}>\nMessage:\n{message}',
+                        settings.DEFAULT_FROM_EMAIL,
+                        [settings.EMAIL_HOST_USER],
+                        fail_silently=False
+                    )
+
                     return JsonResponse({
                         'status': 'success',
                         'message': _('Ваше сообщение успешно отправлено')
