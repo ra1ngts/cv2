@@ -8,6 +8,9 @@
 
   async function handleSend() {
     stateCtx.formErrors = {};
+    if (stateCtx.isSubmitting) return;
+
+    stateCtx.isSubmitting = true;
 
     ordering.forEach((key) => (stateCtx.touchedFields[key] = true));
 
@@ -30,6 +33,7 @@
     }
 
     if (Object.keys(stateCtx.formErrors).length > 0) {
+      stateCtx.isSubmitting = false;
       return;
     }
 
@@ -53,8 +57,9 @@
       const result = await response.json();
 
       if (result.status === 'success') {
+        stateCtx.contactsData = { name: '', email: '', subject: '', message: '' };
         showToast('Message sent successfully!', 'success');
-        console.log('Message sent successfully');
+        console.log('Message sent successfully!');
       } else {
         const cleanedErrors = {};
 
@@ -71,6 +76,8 @@
       }
     } catch (error) {
       console.error('Network Error:', error);
+    } finally {
+      stateCtx.isSubmitting = false;
     }
   }
 </script>
@@ -116,8 +123,9 @@
 
   <button
     onclick={handleSend}
-    class="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors shadow-lg shadow-cyan-400/30"
+    disabled={stateCtx.isSubmitting}
+    class="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-400 disabled:shadow-none w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors shadow-lg shadow-cyan-400/30"
   >
-    Submit
+    {stateCtx.isSubmitting ? 'Sending...' : 'Submit'}
   </button>
 </div>
