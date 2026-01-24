@@ -14,7 +14,7 @@ export const stateCtx = $state({
         message: '',
         email: ''
     },
-    formData: new FormData(),
+    formErrors: {},
     activeSection: 'about',
     sections: [
         { id: 'about', label: 'About' },
