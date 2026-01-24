@@ -1,12 +1,12 @@
 import os
 
-from django.core.mail import send_mail
 from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
 from cv2 import settings
+from .email import send_letter
 from .forms import ContactsForm
 from .models import (
     Profile,
@@ -102,13 +102,7 @@ def index(request):
                     subject = form.cleaned_data['subject']
                     message = form.cleaned_data['message']
 
-                    send_mail(
-                        f'Новое письмо - {subject}',
-                        f'От {name} <{email}>\nMessage:\n{message}',
-                        settings.DEFAULT_FROM_EMAIL,
-                        [settings.EMAIL_HOST_USER],
-                        fail_silently=False
-                    )
+                    send_letter(name, email, message)
 
                     return JsonResponse({
                         'status': 'success',
