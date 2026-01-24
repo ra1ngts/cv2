@@ -15,6 +15,7 @@ export const stateCtx = $state({
         email: ''
     },
     formErrors: {},
+    touchedFields: {},
     activeSection: 'about',
     sections: [
         { id: 'about', label: 'About' },
