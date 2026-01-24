@@ -16,6 +16,11 @@ export const stateCtx = $state({
     },
     formErrors: {},
     touchedFields: {},
+    toast: {
+        show: false,
+        message: '',
+        type: 'success'
+    },
     activeSection: 'about',
     sections: [
         { id: 'about', label: 'About' },
