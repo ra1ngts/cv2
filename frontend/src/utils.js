@@ -65,3 +65,12 @@ export function checkFields() {
         delete stateCtx.formErrors['message'];
     }
 }
+
+// showToast
+export function showToast(message, type = 'success') {
+    stateCtx.toast = { show: true, message, type };
+
+    setTimeout(() => {
+        stateCtx.toast.show = false;
+    }, 3000);
+}
