@@ -6,9 +6,9 @@
   async function handleSend() {
     const response = await fetch('/', {
       method: 'POST',
-      body: contactsForm(stateCtx.contactsData),
+      body: contactsForm(),
       headers: {
-        // Accept: 'application/json',
+        Accept: 'application/json',
         'X-CSRFToken': document.cookie.match(/csrftoken=([^;]+)/)?.[1],
       },
     });
@@ -20,29 +20,40 @@
   }
 </script>
 
-<div>
+<div class="space-y-4 max-w-md">
   {#each ordering as orderItem}
     {#if stateCtx.form[orderItem]}
       {@const field = stateCtx.form[orderItem]}
 
-      <div>
-        <label for={orderItem}>{field.label}</label>
-
-        {#if orderItem === 'subject'}
-          <select id={orderItem} bind:value={stateCtx.contactsData[orderItem]}>
-            <option value="">Choose topic</option>
-            {#each field.choices as [value, label]}
-              <option {value}>{label}</option>
-            {/each}
-          </select>
-        {:else if field.input_type === 'textarea'}
-          <textarea id={orderItem} bind:value={stateCtx.contactsData[orderItem]}></textarea>
+      <div class="flex flex-col">
+        {#if field.input_type === 'textarea'}
+          <textarea
+            id={orderItem}
+            name={orderItem}
+            bind:value={stateCtx.contactsData[orderItem]}
+            rows="5"
+            placeholder={field.label}
+            class="block w-full rounded-2xl border-gray-500 shadow-sm focus:border-cyan-200 focus:ring-4 focus:ring-cyan-200/10 transition-colors duration-300 outline-none p-2.5 border"
+          ></textarea>
         {:else}
-          <input type={field.input_type} id={orderItem} bind:value={stateCtx.contactsData[orderItem]} />
+          <input
+            type={field.input_type}
+            id={orderItem}
+            name={orderItem}
+            bind:value={stateCtx.contactsData[orderItem]}
+            placeholder={field.label}
+            required={field.required}
+            class="block w-full rounded-2xl border-gray-500 shadow-sm focus:border-cyan-200 focus:ring-4 focus:ring-cyan-200/10 transition-colors duration-300 outline-none p-2.5 border"
+          />
         {/if}
       </div>
     {/if}
   {/each}
 
-  <button onclick={handleSend}>Submit</button>
+  <button
+    onclick={handleSend}
+    class="w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors shadow-lg shadow-cyan-400/30"
+  >
+    Submit
+  </button>
 </div>
