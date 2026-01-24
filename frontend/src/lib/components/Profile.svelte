@@ -176,7 +176,7 @@
 
     <div class="grid grid-cols-2 gap-4 pt-10">
       <div class="flex flex-col">
-        <h2 class="text-2xl font-semibold text-gray-500 pb-4">Frontend</h2>
+        <h2 class="text-xl font-semibold text-gray-400 pb-4">Frontend</h2>
 
         <div class="flex flex-wrap gap-3">
           {#each stateCtx.frontendSkills as skill}
@@ -188,7 +188,7 @@
       </div>
 
       <div class="flex flex-col">
-        <h2 class="text-2xl font-semibold text-gray-500 pb-4">Backend</h2>
+        <h2 class="text-xl font-semibold text-gray-400 pb-4">Backend</h2>
 
         <div class="flex flex-wrap gap-3">
           {#each stateCtx.backendSkills as skill}
@@ -206,7 +206,7 @@
   </div>
 </div>
 
-<div class="skills mt-4 pt-4">
+<div class="skills mt-10 pt-4">
   <div class="swiper swiper-skills">
     <div class="swiper-wrapper">
       {#if stateCtx.skills.length > 0}
