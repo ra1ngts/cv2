@@ -25,6 +25,8 @@
         stateCtx.profile = data.profile;
         stateCtx.categories = data.categories;
         stateCtx.skills = data.skills;
+        stateCtx.backendSkills = data.backendSkills;
+        stateCtx.frontendSkills = data.frontendSkills;
         stateCtx.experience = data.experience;
         stateCtx.projects = data.projects;
         stateCtx.form = data.form;
