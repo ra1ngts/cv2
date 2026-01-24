@@ -1,3 +1,5 @@
+import { stateCtx } from './store.svelte';
+
 // formateDate
 export function formateDate(date) {
     if (!date) return '...';
@@ -22,4 +24,38 @@ export function getDuration(startDate, endDate, isCurrent) {
     
     const end = formateDate(endDate);
     return `${start} — ${end}`;
+}
+
+// Email address validation
+export function isEmailValidate(email) {
+    const pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    // console.log('isEmailValidate:', pattern.test(email));
+    return pattern.test(email);
+}
+
+// checkFields
+export function checkFields() {
+    if (stateCtx.contactsData.name === '') {
+        stateCtx.formErrors['name'] = 'Enter your name';
+    } else {
+        delete stateCtx.formErrors['name'];
+    }
+
+    if (!isEmailValidate(stateCtx.contactsData.email) || stateCtx.contactsData.email === '') {
+        stateCtx.formErrors['email'] = 'example@example.com';
+    } else {
+        delete stateCtx.formErrors['email'];
+    }
+
+    if (stateCtx.contactsData.subject === '') {
+        stateCtx.formErrors['subject'] = 'Enter a subject';
+    } else {
+        delete stateCtx.formErrors['subject'];
+    }
+
+    if (stateCtx.contactsData.message === '') {
+        stateCtx.formErrors['message'] = 'Write a message';
+    } else {
+        delete stateCtx.formErrors['message'];
+    }
 }
