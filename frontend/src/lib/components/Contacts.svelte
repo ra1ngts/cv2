@@ -1,6 +1,6 @@
 <script>
   import { stateCtx, contactsForm } from '../../store.svelte';
-  import { isEmailValidate, markAsTouched, checkFields } from '../../utils';
+  import { isEmailValidate, markAsTouched, checkFields, showToast } from '../../utils';
 
   const ordering = ['name', 'email', 'subject', 'message'];
 
@@ -53,6 +53,7 @@
       const result = await response.json();
 
       if (result.status === 'success') {
+        showToast('Message sent successfully!', 'success');
         console.log('Message sent successfully');
       } else {
         const cleanedErrors = {};
