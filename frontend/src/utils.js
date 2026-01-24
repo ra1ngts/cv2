@@ -33,28 +33,34 @@ export function isEmailValidate(email) {
     return pattern.test(email);
 }
 
+// Check touched field
+export function markAsTouched(field) {
+    stateCtx.touchedFields[field] = true;
+    checkFields();
+}
+
 // checkFields
 export function checkFields() {
     if (stateCtx.contactsData.name === '') {
-        stateCtx.formErrors['name'] = 'Enter your name';
+        stateCtx.formErrors['name'] = 'Please enter your name';
     } else {
         delete stateCtx.formErrors['name'];
     }
 
     if (!isEmailValidate(stateCtx.contactsData.email) || stateCtx.contactsData.email === '') {
-        stateCtx.formErrors['email'] = 'example@example.com';
+        stateCtx.formErrors['email'] = 'Enter a valid email address';
     } else {
         delete stateCtx.formErrors['email'];
     }
 
     if (stateCtx.contactsData.subject === '') {
-        stateCtx.formErrors['subject'] = 'Enter a subject';
+        stateCtx.formErrors['subject'] = 'Please enter a subject';
     } else {
         delete stateCtx.formErrors['subject'];
     }
 
     if (stateCtx.contactsData.message === '') {
-        stateCtx.formErrors['message'] = 'Write a message';
+        stateCtx.formErrors['message'] = 'Message is required';
     } else {
         delete stateCtx.formErrors['message'];
     }
