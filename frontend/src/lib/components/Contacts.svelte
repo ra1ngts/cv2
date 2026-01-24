@@ -66,7 +66,7 @@
         for (const [field, array] of Object.entries(result.errors)) {
           console.log('field, array', field, array);
 
-          cleanedErrors[field] = array[0].message;
+          cleanedErrors[field] = array[0]?.message;
         }
 
         stateCtx.formErrors = cleanedErrors;
