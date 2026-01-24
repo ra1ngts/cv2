@@ -14,6 +14,7 @@ export const stateCtx = $state({
         message: '',
         email: ''
     },
+    isSubmitting: false,
     formErrors: {},
     touchedFields: {},
     toast: {
