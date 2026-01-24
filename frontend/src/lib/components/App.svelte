@@ -5,6 +5,7 @@
   import Experience from './Experience.svelte';
   import Projects from './Projects.svelte';
   import Contacts from './Contacts.svelte';
+  import Toast from './Toast.svelte';
 
   const getCtx = async () => {
     try {
@@ -111,6 +112,8 @@
     <hr class="py-2 border-gray-500/50 opacity-50" />
     <Contacts />
   </section>
+
+  <Toast />
 
   <div class="flex py-4 items-center justify-center text-gray-800 gap-2 transition-colors duration-300 group">
     <a
