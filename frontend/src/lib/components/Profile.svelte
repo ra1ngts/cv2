@@ -174,14 +174,30 @@
       </div>
     </div>
 
-    <div class="flex flex-row flex-wrap items-center gap-4 py-10">
-      {#each stateCtx.skills as skill}
-        {#if skill.category.name !== 'Certificate'}
-          <div>
-            <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
-          </div>
-        {/if}
-      {/each}
+    <div class="grid grid-cols-2 gap-4 pt-10">
+      <div class="flex flex-col">
+        <h2 class="text-2xl font-semibold text-gray-500 pb-4">Frontend</h2>
+
+        <div class="flex flex-wrap gap-3">
+          {#each stateCtx.frontendSkills as skill}
+            <div>
+              <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+            </div>
+          {/each}
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <h2 class="text-2xl font-semibold text-gray-500 pb-4">Backend</h2>
+
+        <div class="flex flex-wrap gap-3">
+          {#each stateCtx.backendSkills as skill}
+            <div>
+              <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+            </div>
+          {/each}
+        </div>
+      </div>
     </div>
   </div>
 
