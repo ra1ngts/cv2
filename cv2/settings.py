@@ -137,6 +137,14 @@ THUMBNAIL_PROCESSORS = (
 
 TABBED_ADMIN_USE_JQUERY_UI = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_USE_TLS = config('EMAIL_USE_TLS')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+
 try:
     from .local import *
 except ImportError:
