@@ -122,6 +122,7 @@ def index(request):
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
                 'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
+                'certificates': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Certificate')],
                 'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend')],
                 'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend')],
                 'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
@@ -166,7 +167,7 @@ def index(request):
 
     ctx = {
         'manifest_css': manifest.get('css', []),
-        'manifest_js': manifest.get('file', ''),
+        'manifest_js': manifest.get('file', '')
     }
 
     return render(request, 'main/index.html', ctx)
