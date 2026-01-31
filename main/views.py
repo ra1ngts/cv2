@@ -5,6 +5,8 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
+import requests
+
 from cv2 import settings
 from .email import send_letter
 from .forms import ContactsForm
@@ -102,12 +104,31 @@ def index(request):
                     subject = form.cleaned_data['subject']
                     message = form.cleaned_data['message']
 
-                    send_letter(name, email, message)
+                    recaptcha_token = request.POST.get('recaptcha_token')
 
-                    return JsonResponse({
-                        'status': 'success',
-                        'message': _('Ваше сообщение успешно отправлено')
-                    })
+                    data = {
+                        'secret': settings.RECAPTCHA_PRIVATE_KEY,
+                        'response': recaptcha_token
+                    }
+
+                    r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+
+                    result = r.json()
+
+                    if result.get('success') and result.get('score', 0) >= 0.5:
+                        send_letter(name, email, message)
+
+                        return JsonResponse({
+                            'status': 'success',
+                            'message': _('Ваше сообщение успешно отправлено')
+                        })
+
+                    else:
+                        return JsonResponse({
+                            'status': 'error',
+                            'message': _('Проверка безопасности не пройдена. Попробуйте еще раз.'),
+                            'errors':  [{'message': _('Низкий рейтинг reCAPTCHA. Попробуйте обновить страницу.')}]
+                        })
 
                 else:
                     return JsonResponse({
@@ -166,6 +187,7 @@ def index(request):
     ).get('index.html', {})
 
     ctx = {
+        'site_key': settings.RECAPTCHA_PUBLIC_KEY,
         'manifest_css': manifest.get('css', []),
         'manifest_js': manifest.get('file', '')
     }
