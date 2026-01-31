@@ -109,7 +109,7 @@
         </div>
 
         <div
-          class="flex gap-4 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-10 [&_svg]:w-10 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
+          class="flex gap-4 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
         >
           {#if stateCtx.profile.whatsapp}
             <div>
@@ -206,26 +206,26 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 pt-10">
+    <div class="grid grid-cols-2 gap-4 pt-4">
       <div class="flex flex-col">
-        <h2 class="text-xl font-semibold text-gray-400 pb-4">Frontend</h2>
+        <h2 class="text-lg sm:text-2xl text-gray-400 pb-4">Frontend</h2>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
           {#each stateCtx.frontendSkills as skill}
             <div>
-              <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+              <img src={skill.image} alt={skill.name} class="w-6 h-6 object-contain" />
             </div>
           {/each}
         </div>
       </div>
 
       <div class="flex flex-col">
-        <h2 class="text-xl font-semibold text-gray-400 pb-4">Backend</h2>
+        <h2 class="text-lg sm:text-2xl text-gray-400 pb-4">Backend</h2>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="flex flex-wrap gap-2">
           {#each stateCtx.backendSkills as skill}
             <div>
-              <img src={skill.image} alt={skill.name} class="w-10 h-10 object-contain" />
+              <img src={skill.image} alt={skill.name} class="w-6 h-6 object-contain" />
             </div>
           {/each}
         </div>
