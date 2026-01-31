@@ -62,13 +62,10 @@
 }
 
 .typing-text {
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 2px solid var(--color-gray-300);;
-  width: 0;
-  animation: 
-    typing 3.5s steps(30, end) forwards,
-    blink 1s step-end infinite;
+  white-space: normal; 
+  overflow: visible;
+  width: auto;
+  border-right: none;
 }
 
 .fade {
@@ -139,5 +136,15 @@
 @media (min-width: 1280px) {
   .container {
     max-width: 1367px;
+  }
+
+  .typing-text {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--color-gray-300);
+    width: 0;
+    animation: 
+      typing 3.5s steps(30, end) forwards,
+      blink 1s step-end infinite;
   }
 }
