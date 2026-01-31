@@ -75,11 +75,11 @@
 
 <div class="fixed top-0 z-10 w-full bg-linear-to-b from-gray-950/80 to-gray-800/40 backdrop-blur-md">
   <div class="container p-4">
-    <div class="grid grid-cols-4 gap-4 items-center">
+    <nav class="flex justify-between items-center gap-2 overflow-x-auto no-scrollbar">
       {#each stateCtx.sections as section}
         <button
           onclick={() => scrollTo(section.id)}
-          class="transition-colors duration-300 hover:text-cyan-200 text-xl font-semibold {stateCtx.activeSection ===
+          class="transition-colors duration-300 hover:text-cyan-200 text-sm sm:text-base md:text-xl font-semibold {stateCtx.activeSection ===
           section.id
             ? 'text-cyan-400'
             : 'text-gray-500 cursor-pointer'}"
@@ -87,7 +87,7 @@
           {section.label}
         </button>
       {/each}
-    </div>
+    </nav>
   </div>
 </div>
 
