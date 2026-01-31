@@ -28,7 +28,7 @@
         prevEl: '.swiper-button-prev',
       },
       breakpoints: {
-        0: {
+        320: {
           navigation: {
             enabled: false,
           },
