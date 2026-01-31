@@ -28,6 +28,38 @@
         nextEl: '.swiper-button-next',
         prevEl: '.swiper-button-prev',
       },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          navigation: {
+            enabled: false,
+          },
+          pagination: {
+            enabled: true,
+          },
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+          navigation: {
+            enabled: true,
+          },
+          pagination: {
+            enabled: true,
+          },
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+          navigation: {
+            enabled: true,
+          },
+          pagination: {
+            enabled: true,
+          },
+        },
+      },
     });
 
     if (stateCtx.skills && stateCtx.skills.length > 0) {
