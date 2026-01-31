@@ -85,11 +85,11 @@
   });
 </script>
 
-<div class="grid grid-cols-2 gap-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <div>
     <div class="flex flex-row items-stretch gap-4">
       {#if stateCtx.profile.image}
-        <div class="shrink-0 flex items-center">
+        <div class="shrink-0 hidden lg:flex items-center">
           <img
             src={stateCtx.profile.image}
             alt={stateCtx.profile.name}
@@ -99,7 +99,7 @@
       {/if}
 
       <div class="w-fit flex flex-col justify-center gap-4">
-        <div class="text-5xl text-gray-300 font-bold typing-text">
+        <div class="text-4xl sm:text-5xl text-gray-300 font-bold typing-text">
           {stateCtx.profile.name}
           {stateCtx.profile.lastname}
         </div>
@@ -109,7 +109,7 @@
         </div>
 
         <div
-          class="flex gap-4 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
+          class="flex gap-2 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
         >
           {#if stateCtx.profile.whatsapp}
             <div>
@@ -206,7 +206,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-2 gap-4 pt-4">
+    <div class="grid grid-cols-2 gap-2 sm:gap-4 pt-4">
       <div class="flex flex-col">
         <h2 class="text-lg sm:text-2xl text-gray-400 pb-4">Frontend</h2>
 
