@@ -60,7 +60,7 @@
     <div class="swiper-wrapper">
       {#each stateCtx.projects as item}
         <div class="swiper-slide">
-          <div class="grid grid-cols-{item.images.length === 0 ? '1' : '4'} gap-4 px-10">
+          <div class="grid grid-cols-{item.images.length === 0 ? '1' : '4'} gap-4 px-2 md:px-10">
             {#if item.images.length > 0}
               <div class="col-span-{item.images.length === 1 ? '2' : '1'} h-80">
                 <a href={item.images[0]} data-fancybox="projects-gallery-{item.id}">
@@ -85,7 +85,7 @@
               <div
                 class="grid grid-cols-[1fr_auto_auto] py-2 items-center gap-4 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
               >
-                <h3 class="text-2xl font-bold transition-colors duration-300 group-hover:text-cyan-200">
+                <h3 class="text-lg sm:text-2xl font-bold transition-colors duration-300 group-hover:text-cyan-200">
                   {@html item.title}
                 </h3>
 
