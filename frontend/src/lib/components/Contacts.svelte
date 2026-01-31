@@ -37,7 +37,22 @@
       return;
     }
 
-    const request = contactsForm();
+    let retry = 0;
+
+    while (typeof window.grecaptcha === 'undefined' || !window.grecaptcha.execute) {
+      await new Promise((r) => setTimeout(r, 100));
+      if (retry++ > 50) throw new Error('reCAPTCHA load timeout');
+    }
+
+    const token = await new Promise((resolve, reject) => {
+      window.grecaptcha.ready(() => {
+        window.grecaptcha.execute(window.RECAPTCHA_SITE_KEY, { action: 'submit' }).then(resolve).catch(reject);
+      });
+    });
+
+    if (!token) throw new Error('Failed to generate captcha token');
+
+    const request = contactsForm(token);
 
     try {
       const response = await fetch('/', {
