@@ -134,7 +134,7 @@
         />
       </svg>
       <div>
-        {new Date().getFullYear()} David Khurtsidze
+        {new Date().getFullYear()} David Khurtsidze. All rights reserved.
       </div>
     </a>
   </div>
