@@ -260,7 +260,11 @@
             >
               <div class="h-64 overflow-hidden rounded-2xl bg-white">
                 <a href={skill.image} data-fancybox="skills-gallery-{skill.id}">
-                  <img src={skill.image} alt={skill.name} class="w-full h-full object-contain" />
+                  <img
+                    src={skill.image}
+                    alt={skill.name}
+                    class="w-full h-full object-contain cursor-pointer opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                  />
                 </a>
               </div>
 
