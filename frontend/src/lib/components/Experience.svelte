@@ -40,9 +40,9 @@
               <div class="flex flex-wrap flex-row gap-2">
                 {#each entry.skills as skill}
                   {#if skill.category.name !== 'Certificate'}
-                    <div class="flex items-center">
+                    <div class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3">
                       {#if skill.image}
-                        <img src={skill.image} alt={skill.name} class="flex w-full h-6 object-cover" />
+                        <img src={skill.image} alt={skill.name} class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain" />
                       {/if}
                     </div>
                   {/if}
