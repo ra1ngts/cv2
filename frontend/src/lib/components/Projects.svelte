@@ -146,7 +146,12 @@
                 <div class="flex flex-wrap gap-2 items-center sm:pt-4 pt-2">
                   {#each item.technologies as skill}
                     <div class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3">
-                      <img src={skill.image} alt={skill.name} title={skill.name} class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain" />
+                      <img
+                        src={skill.image}
+                        alt={skill.name}
+                        title={skill.name}
+                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain"
+                      />
                     </div>
                   {/each}
                 </div>
