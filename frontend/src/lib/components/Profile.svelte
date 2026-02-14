@@ -109,7 +109,7 @@
       {/if}
 
       <div class="w-fit flex flex-col justify-center gap-4">
-        <div class="text-4xl sm:text-5xl gradient-2-colors-text font-bold typing-text">
+        <div class="text-4xl sm:text-5xl gradient-to-b font-bold typing-text">
           {stateCtx.profile.name}
           {stateCtx.profile.lastname}
         </div>
