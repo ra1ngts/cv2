@@ -203,6 +203,7 @@ class Experience(Basic, BaseModelPublished, BaseModelOrderby):
     skills = models.ManyToManyField(
         Skill,
         blank=True,
+        limit_choices_to=~models.Q(category__name='Certificate'),
         related_name='experiences',
         verbose_name=_('Использованные навыки'),
         help_text=_('Выберите конкретные навыки, которые вы применяли')
@@ -271,6 +272,7 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
     )
     technologies = models.ManyToManyField(
         Skill,
+        limit_choices_to=~models.Q(category__name='Certificate'),
         related_name='projects',
         help_text=_('Выбор навыка или технологии'),
         verbose_name=_('Навык или технология')
