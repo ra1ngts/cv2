@@ -139,7 +139,7 @@
   <button
     onclick={handleSend}
     disabled={stateCtx.isSubmitting}
-    class="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-400 disabled:shadow-none w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors shadow-lg shadow-cyan-400/30"
+    class="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-400 disabled:shadow-none w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors duration-300 shadow-lg shadow-cyan-400/30"
   >
     {stateCtx.isSubmitting ? 'Sending...' : 'Submit'}
   </button>
