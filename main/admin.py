@@ -88,7 +88,6 @@ class SkillAdmin(admin.ModelAdmin):
         'order_by',
         'category',
         'name',
-        'level',
         'created_at',
         'updated_at'
     )
@@ -98,8 +97,7 @@ class SkillAdmin(admin.ModelAdmin):
     )
     list_filter = (
         'category',
-        'name',
-        'level'
+        'name'
     )
     ordering = ('order_by',)
 
