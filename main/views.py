@@ -53,7 +53,6 @@ def ResultEncoder(obj):
                 'name': obj.category.name
             },
             'name': obj.name,
-            'level': obj.level,
             'image': obj.image.url if obj.image else None,
             'skill_url': obj.skill_url
         }
@@ -84,7 +83,6 @@ def ResultEncoder(obj):
                     'name': value.category.name
                 },
                 'name': value.name,
-                'level': value.level,
                 'image': value.image.url if value.image else None
             } for value in obj.technologies.all()],
             'github_url': obj.github_url,
