@@ -291,7 +291,7 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
     )
 
     def __str__(self):
-        return self.title
+        return self.title or f'Project {self.id}'
 
     class Meta:
         ordering = ['order_by']
