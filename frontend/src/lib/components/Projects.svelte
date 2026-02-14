@@ -107,7 +107,7 @@
 
             <div class="col-span-1 flex flex-col h-80">
               <div
-                class="grid grid-cols-[1fr_auto_auto] py-2 items-center gap-4 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-400 [&_svg]:hover:fill-cyan-200"
+                class="grid grid-cols-[1fr_auto_auto] py-2 items-center gap-4 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-500 [&_svg]:hover:fill-cyan-200"
               >
                 <h3 class="text-lg sm:text-2xl font-bold transition-colors duration-300 group-hover:text-cyan-200">
                   {@html item.title}
