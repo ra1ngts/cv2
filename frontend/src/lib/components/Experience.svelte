@@ -10,7 +10,7 @@
         class="grid sm:grid-cols-3 grid-cols-1 sm:gap-4 gap-2 p-2 md:p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
         hover:shadow-2xl hover:shadow-cyan-950/20"
       >
-        <div class="col-span-1 flex items-center gap-2 [&_svg]:fill-gray-400">
+        <div class="col-span-1 flex items-center gap-2 [&_svg]:fill-gray-500">
           <div>
             <svg class="w-full h-6 object-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
               ><path
@@ -19,7 +19,7 @@
             >
           </div>
 
-          <div class="text-gray-400">
+          <div>
             {getDuration(entry.start_date, entry.end_date, entry.is_current)}
           </div>
         </div>
@@ -27,7 +27,7 @@
         <div class="col-span-2">
           <div class="grid grid-cols-1 sm:gap-4 gap-2">
             <h3
-              class="text-gray-300 font-semibold text-sm sm:text-lg md:text-2xl transition-colors duration-300 group-hover:text-cyan-200"
+              class="font-semibold text-sm sm:text-lg md:text-2xl transition-colors duration-300 group-hover:text-cyan-200"
             >
               {entry.position}, {entry.company}
             </h3>
