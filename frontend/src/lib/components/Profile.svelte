@@ -109,17 +109,17 @@
       {/if}
 
       <div class="w-fit flex flex-col justify-center gap-4">
-        <div class="text-4xl sm:text-5xl text-gray-300 font-bold typing-text">
+        <div class="text-4xl sm:text-5xl gradient-2-colors-text font-bold typing-text">
           {stateCtx.profile.name}
           {stateCtx.profile.lastname}
         </div>
 
-        <div class="text-lg text-gray-400 fade">
+        <div class="text-lg fade">
           {stateCtx.profile.occupation}
         </div>
 
         <div
-          class="flex gap-2 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:sm:h-6 [&_svg]:sm:w-6 [&_svg]:fill-gray-400 [&_svg]:group-hover:fill-cyan-200"
+          class="flex gap-2 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:sm:h-6 [&_svg]:sm:w-6 [&_svg]:fill-gray-500 [&_svg]:group-hover:fill-cyan-200"
         >
           {#if stateCtx.profile.whatsapp}
             <a
@@ -226,9 +226,11 @@
       </div>
     </div>
 
+    <h2 class="pt-8 text-xl sm:text-3xl font-bold">Tech Stack</h2>
+
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 pt-4">
       <div class="flex flex-col">
-        <h2 class="text-lg sm:text-2xl text-gray-400 pb-2 sm:pb-4">Frontend</h2>
+        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">Frontend</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.frontendSkills as skill}
@@ -240,7 +242,7 @@
       </div>
 
       <div class="flex flex-col">
-        <h2 class="text-lg sm:text-2xl text-gray-400 pb-2 sm:pb-4">Backend</h2>
+        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">Backend</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.backendSkills as skill}
@@ -253,7 +255,7 @@
     </div>
   </div>
 
-  <div class="text-gray-400">
+  <div>
     {stateCtx.profile.description}
   </div>
 </div>
@@ -279,7 +281,7 @@
               </div>
 
               <div
-                class="flex flex-row gap-4 items-center text-gray-400 transition-colors duration-300 group-hover:text-cyan-200 {skill.skill_url
+                class="flex flex-row gap-4 items-center transition-colors duration-300 group-hover:text-cyan-200 {skill.skill_url
                   ? 'cursor-pointer'
                   : ''}"
               >
