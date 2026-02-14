@@ -286,8 +286,8 @@ class Project(Basic, BaseModelPublished, BaseModelOrderby):
         null=True,
         blank=True,
         max_length=500,
-        help_text=_('Введите ссылку на Live-Demo'),
-        verbose_name=_('Ссылка на Live-Demo')
+        help_text=_('Введите ссылку на Live Demo'),
+        verbose_name=_('Ссылка на Live Demo')
     )
 
     def __str__(self):
