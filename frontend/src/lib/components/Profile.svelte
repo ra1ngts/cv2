@@ -53,6 +53,16 @@
           slidesPerView: 3,
           spaceBetween: 15,
           navigation: {
+            enabled: false,
+          },
+          pagination: {
+            enabled: true,
+          },
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 15,
+          navigation: {
             enabled: true,
           },
           pagination: {
