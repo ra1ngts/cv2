@@ -18,6 +18,7 @@ from .models import (
     Project,
     ProjectImage
 )
+from .translation_dict import getTranslateDict
 from .utils import get_svelte_manifest
 
 
@@ -138,6 +139,7 @@ def index(request):
 
             return JsonResponse({
                 'status': 'success',
+                'translate': getTranslateDict(),
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
                 'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
