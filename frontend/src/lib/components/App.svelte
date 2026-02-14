@@ -117,19 +117,19 @@
     </section>
 
     <section id="experience" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl text-gray-500 pb-4">Experience</h2>
+      <h2 class="text-4xl pb-4">Experience</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
       <Experience />
     </section>
 
     <section id="projects" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl text-gray-500 pb-4">Projects</h2>
+      <h2 class="text-4xl pb-4">Projects</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
       <Projects />
     </section>
 
     <section id="contacts" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl text-gray-500 pb-4">Contacts</h2>
+      <h2 class="text-4xl pb-4">Contacts</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
       <Contacts />
     </section>
