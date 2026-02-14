@@ -81,7 +81,7 @@
           <div
             class={item.images.length > 0
               ? 'grid grid-cols-1 sm:grid-cols-2 sm:gap-4 gap-2 px-2 md:px-10'
-              : 'grid grid-cols-1 sm:gap-4 gap-2 px-2 md:px-10'}
+              : 'grid grid-cols-1 sm:gap-4 gap-2 px-0 md:px-10'}
           >
             {#if item.images.length > 0}
               <div class="w-full h-80">
