@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
+from modeltranslation.admin import TranslationAdmin
 
 from tabbed_admin import TabbedModelAdmin
 
@@ -14,7 +15,7 @@ from .models import (
 
 
 @admin.register(Profile)
-class ProfileAdmin(TabbedModelAdmin):
+class ProfileAdmin(TranslationAdmin, TabbedModelAdmin):
     list_display = (
         'id',
         'name',
@@ -33,11 +34,11 @@ class ProfileAdmin(TabbedModelAdmin):
     tab_main = (
         (None, {
             'fields': (
-                'name',
-                'lastname',
+                'name_ru', 'name_en',
+                'lastname_ru', 'lastname_en',
                 'image',
                 'occupation',
-                'description'
+                'description_ru', 'description_en'
             )
         }),
     )
@@ -60,6 +61,18 @@ class ProfileAdmin(TabbedModelAdmin):
         (_('Личные данные'), tab_main),
         (_('Контактные данные'), tab_contacts),
     ]
+
+    group_fieldsets = True
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com',
+            'https://ajax.googleapis.com',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
 
 
 @admin.register(SkillCategory)
@@ -103,7 +116,7 @@ class SkillAdmin(admin.ModelAdmin):
 
 
 @admin.register(Experience)
-class ExperienceAdmin(TabbedModelAdmin):
+class ExperienceAdmin(TabbedModelAdmin, TranslationAdmin):
     list_display = (
         'id',
         'order_by',
@@ -129,11 +142,11 @@ class ExperienceAdmin(TabbedModelAdmin):
                 'order_by',
                 'company',
                 'company_url',
-                'position',
+                'position_ru', 'position_en',
                 'start_date',
                 'end_date',
                 'is_current',
-                'achievements'
+                'achievements_ru', 'achievements_en'
             )
         }),
     )
@@ -151,6 +164,18 @@ class ExperienceAdmin(TabbedModelAdmin):
         (_('Технологический стек'), tab_skills),
     ]
 
+    group_fieldsets = True
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com',
+            'https://ajax.googleapis.com',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
 
 class ProjectImageInline(admin.StackedInline):
     model = ProjectImage
@@ -158,13 +183,14 @@ class ProjectImageInline(admin.StackedInline):
 
 
 @admin.register(Project)
-class ProjectAdmin(TabbedModelAdmin):
+class ProjectAdmin(TabbedModelAdmin, TranslationAdmin):
     inlines = [ProjectImageInline]
 
     list_display = (
         'id',
         'order_by',
         'title',
+        'description',
         'is_published'
     )
     list_display_links = (
@@ -176,12 +202,17 @@ class ProjectAdmin(TabbedModelAdmin):
         'is_published'
     )
     ordering = ('order_by',)
+    filter_horizontal = ('technologies',)
 
     tab_main = (
         (None, {
             'fields': (
                 'order_by',
-                'title',
+                'title_ru', 'title_en',
+                'description_ru', 'description_en',
+                'technologies',
+                'github_url',
+                'live_demo_url',
                 'is_published'
             )
         }),
@@ -195,3 +226,15 @@ class ProjectAdmin(TabbedModelAdmin):
         (_('Настройки'), tab_main),
         (_('Изображения'), tab_image),
     ]
+
+    group_fieldsets = True
+
+    class Media:
+        js = (
+            'https://ajax.googleapis.com',
+            'https://ajax.googleapis.com',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
