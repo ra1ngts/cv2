@@ -31,7 +31,7 @@
       breakpoints: {
         320: {
           slidesPerView: 1,
-          spaceBetween: 20,
+          spaceBetween: 15,
           navigation: {
             enabled: false,
           },
@@ -41,7 +41,7 @@
         },
         640: {
           slidesPerView: 2,
-          spaceBetween: 20,
+          spaceBetween: 15,
           navigation: {
             enabled: true,
           },
@@ -51,7 +51,7 @@
         },
         768: {
           slidesPerView: 3,
-          spaceBetween: 30,
+          spaceBetween: 15,
           navigation: {
             enabled: true,
           },
@@ -248,14 +248,14 @@
   </div>
 </div>
 
-<div class="skills mt-10 pt-4">
+<div class="skills mt-5 sm:mt-10 pt-4">
   <div class="swiper swiper-skills">
     <div class="swiper-wrapper">
       {#if stateCtx.certificates.length > 0}
         {#each stateCtx.certificates as skill}
           <div class="swiper-slide">
             <div
-              class="group flex flex-col gap-4 px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
+              class="group flex flex-col gap-4 px-0 lg:px-10 py-4 items-center rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
                 hover:shadow-2xl hover:shadow-cyan-950/30"
             >
               <div class="h-64 overflow-hidden rounded-2xl bg-white">
