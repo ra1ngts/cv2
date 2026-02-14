@@ -176,11 +176,6 @@ class Skill(Basic, BaseModelPublished, BaseModelOrderby):
         help_text=_('Введите название навыка'),
         verbose_name=_('Название навыка')
     )
-    level = models.IntegerField(
-        default=100,
-        help_text=_('Выберите уровень владения навыком'),
-        verbose_name=_('Уровень владения навыком')
-    )
     image = FilerImageField(
         null=True,
         blank=True,
