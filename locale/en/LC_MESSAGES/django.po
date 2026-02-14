@@ -1,0 +1,370 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-14 15:55+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\cv2\settings.py:120
+msgid "Russian"
+msgstr "Russian"
+
+#: .\cv2\settings.py:121
+msgid "English"
+msgstr "English"
+
+#: .\main\admin.py:60
+msgid "Личные данные"
+msgstr "Personal Data"
+
+#: .\main\admin.py:61
+msgid "Контактные данные"
+msgstr "Contact Information"
+
+#: .\main\admin.py:150
+msgid "Данные о компании"
+msgstr "Company Details"
+
+#: .\main\admin.py:151
+msgid "Технологический стек"
+msgstr "Tech Stack"
+
+#: .\main\admin.py:195
+msgid "Настройки"
+msgstr "Settings"
+
+#: .\main\admin.py:196
+msgid "Изображения"
+msgstr "Images"
+
+#: .\main\apps.py:7
+msgid "Главная"
+msgstr "Home"
+
+#: .\main\forms.py:7 .\main\models.py:53
+msgid "Имя"
+msgstr "Name"
+
+#: .\main\forms.py:9
+msgid "Ваше имя"
+msgstr "Your Name"
+
+#: .\main\forms.py:12
+msgid "Тема"
+msgstr "Subject"
+
+#: .\main\forms.py:17
+msgid "Сообщение"
+msgstr "Message"
+
+#: .\main\forms.py:18
+msgid "Ваше сообщение..."
+msgstr "Your message..."
+
+#: .\main\forms.py:21 .\main\models.py:96
+msgid "Электронная почта"
+msgstr "Email address"
+
+#: .\main\forms.py:23
+msgid "example@example.com"
+msgstr "example@example.com"
+
+#: .\main\models.py:11
+msgid "Создано"
+msgstr "Created"
+
+#: .\main\models.py:15
+msgid "Обновлено"
+msgstr "Updated"
+
+#: .\main\models.py:24
+msgid "Опубликовано"
+msgstr "Published"
+
+#: .\main\models.py:34
+msgid ""
+"Используйте дробные числа (например, 1.2), чтобы вставить запись между "
+"целыми числами без переименования остальных"
+msgstr ""
+"Use decimal numbers (e.g., 1.2) to insert an entry between "
+"integers without renumbering the others"
+
+#: .\main\models.py:35
+msgid "Порядок"
+msgstr "Order"
+
+#: .\main\models.py:45
+msgid ""
+"Номер телефона должен быть в формате: \"+79991234567\". От 9 до 15 цифр."
+msgstr ""
+"Phone number must be in the format: \"+79991234567\". Up to 15 digits allowed."
+
+#: .\main\models.py:52
+msgid "Введите имя"
+msgstr "Enter first name"
+
+#: .\main\models.py:59
+msgid "Введите фамилию"
+msgstr "Enter last name"
+
+#: .\main\models.py:60
+msgid "Фамилия"
+msgstr "Last name"
+
+#: .\main\models.py:66
+msgid "Загрузите изображение"
+msgstr "Upload image"
+
+#: .\main\models.py:67 .\main\models.py:312
+msgid "Изображение"
+msgstr "Image"
+
+#: .\main\models.py:73
+msgid "Введите название профессии"
+msgstr "Enter job title"
+
+#: .\main\models.py:74
+msgid "Профессия"
+msgstr "Job title"
+
+#: .\main\models.py:79
+msgid "Введите информацию о себе"
+msgstr "Enter your bio"
+
+#: .\main\models.py:80 .\main\models.py:270
+msgid "Описание"
+msgstr "Description"
+
+#: .\main\models.py:87
+msgid "Введите номер телефона"
+msgstr "Enter phone number"
+
+#: .\main\models.py:88
+msgid "Номер телефона"
+msgstr "Phone number"
+
+#: .\main\models.py:95
+msgid "Введите адрес вашей электронной почты"
+msgstr "Enter your email address"
+
+#: .\main\models.py:102
+msgid "Введите ссылку на профиль WhatsApp"
+msgstr "Enter WhatsApp profile link"
+
+#: .\main\models.py:103
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+#: .\main\models.py:109
+msgid "Введите ссылку на профиль Telegram"
+msgstr "Enter Telegram profile link"
+
+#: .\main\models.py:110
+msgid "Telegram"
+msgstr "Telegram"
+
+#: .\main\models.py:116
+msgid "Введите ссылку на профиль LinkedIn"
+msgstr "Enter LinkedIn profile link"
+
+#: .\main\models.py:117
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: .\main\models.py:123
+msgid "Введите ссылку на профиль GitHub"
+msgstr "Enter GitHub profile link"
+
+#: .\main\models.py:124 .\main\models.py:283
+msgid "GitHub"
+msgstr "GitHub"
+
+#: .\main\models.py:130
+msgid "Введите ссылку на резюме"
+msgstr "Enter resume link"
+
+#: .\main\models.py:131
+msgid "Ссылка на резюме"
+msgstr "Resume link"
+
+#: .\main\models.py:143 .\main\models.py:144
+msgid "Личная информация"
+msgstr "Personal Information"
+
+#: .\main\models.py:152
+msgid "Введите категорию навыка"
+msgstr "Enter skill category"
+
+#: .\main\models.py:153 .\main\models.py:170
+msgid "Категория навыка"
+msgstr "Skill category"
+
+#: .\main\models.py:160 .\main\models.py:161
+msgid "Категория навыков"
+msgstr "Skill categories"
+
+#: .\main\models.py:169
+msgid "Выберите категорию навыка"
+msgstr "Select skill category"
+
+#: .\main\models.py:176
+msgid "Введите название навыка"
+msgstr "Enter skill name"
+
+#: .\main\models.py:177
+msgid "Название навыка"
+msgstr "Skill name"
+
+#: .\main\models.py:183
+msgid "Загрузите иконку навыка"
+msgstr "Upload skill icon"
+
+#: .\main\models.py:184
+msgid "Иконка навыка"
+msgstr "Skill icon"
+
+#: .\main\models.py:190
+msgid "Введите ссылку на сертификат"
+msgstr "Enter certificate link"
+
+#: .\main\models.py:191
+msgid "Ссылка на сертификат"
+msgstr "Certificate link"
+
+#: .\main\models.py:198
+msgid "Навык"
+msgstr "Skill"
+
+#: .\main\models.py:199
+msgid "Навыки"
+msgstr "Skills"
+
+#: .\main\models.py:207
+msgid "Использованные навыки"
+msgstr "Skills used"
+
+#: .\main\models.py:208
+msgid "Выберите конкретные навыки, которые вы применяли"
+msgstr "Select the specific skills you applied"
+
+#: .\main\models.py:214
+msgid "Введите название компании"
+msgstr "Enter company name"
+
+#: .\main\models.py:215
+msgid "Название компании"
+msgstr "Company name"
+
+#: .\main\models.py:221
+msgid "Введите ссылку на сайт компании"
+msgstr "Enter company website link"
+
+#: .\main\models.py:222
+msgid "Ссылка на сайт компании"
+msgstr "Company website link"
+
+#: .\main\models.py:228
+msgid "Введите название своей позиции"
+msgstr "Enter your job title"
+
+#: .\main\models.py:229
+msgid "Название позиции"
+msgstr "Job title"
+
+#: .\main\models.py:231
+msgid "Дата начала работы в компании"
+msgstr "Start date"
+
+#: .\main\models.py:235
+msgid "Дата окончания работы в компании"
+msgstr "End date"
+
+#: .\main\models.py:239
+msgid "Работаете ли в компании в настоящее время?"
+msgstr "Do you currently work here?"
+
+#: .\main\models.py:240
+msgid "Работа в настоящее время"
+msgstr "Currently working here"
+
+#: .\main\models.py:245
+msgid "Введите свои достижения в компании"
+msgstr "Enter your achievements at the company"
+
+#: .\main\models.py:246
+msgid "Достижения в компании"
+msgstr "Key achievements"
+
+#: .\main\models.py:254 .\main\models.py:255
+msgid "Опыт"
+msgstr "Experience"
+
+#: .\main\models.py:263
+msgid "Введите название проекта"
+msgstr "Enter project name"
+
+#: .\main\models.py:264
+msgid "Название проекта"
+msgstr "Project name"
+
+#: .\main\models.py:269
+msgid "Введите описание проекта"
+msgstr "Enter project description"
+
+#: .\main\models.py:275
+msgid "Выбор навыка или технологии"
+msgstr "Select skill or technology"
+
+#: .\main\models.py:276
+msgid "Навык или технология"
+msgstr "Skill or technology"
+
+#: .\main\models.py:282
+msgid "Введите ссылку на GitHub"
+msgstr "Enter GitHub link"
+
+#: .\main\models.py:289
+msgid "Введите ссылку на Live Demo"
+msgstr "Enter Live Demo link"
+
+#: .\main\models.py:290
+msgid "Ссылка на Live Demo"
+msgstr "Live Demo link"
+
+#: .\main\models.py:298
+msgid "Проект"
+msgstr "Project"
+
+#: .\main\models.py:299
+msgid "Проекты"
+msgstr "Projects"
+
+#: .\main\models.py:326
+msgid "Фотография"
+msgstr "Photo"
+
+#: .\main\models.py:327
+msgid "Галерея проекта"
+msgstr "Project gallery"
+
+#: .\main\views.py:121
+msgid "Ваше сообщение успешно отправлено"
+msgstr "Your message has been sent successfully"
+
+#: .\main\views.py:127
+msgid "Проверка безопасности не пройдена. Попробуйте еще раз."
+msgstr "Security check failed. Please try again."
+
+#: .\main\views.py:128
+msgid "Низкий рейтинг reCAPTCHA. Попробуйте обновить страницу."
+msgstr "Low reCAPTCHA score. Please refresh the page."
