@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-14 15:55+0300\n"
+"POT-Creation-Date: 2026-02-14 22:43+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -15,35 +15,36 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: .\cv2\settings.py:120
+
+#: .\cv2\settings.py:121
 msgid "Russian"
 msgstr "Russian"
 
-#: .\cv2\settings.py:121
+#: .\cv2\settings.py:122
 msgid "English"
 msgstr "English"
 
-#: .\main\admin.py:60
+#: .\main\admin.py:61
 msgid "Личные данные"
 msgstr "Personal Data"
 
-#: .\main\admin.py:61
+#: .\main\admin.py:62
 msgid "Контактные данные"
 msgstr "Contact Information"
 
-#: .\main\admin.py:150
+#: .\main\admin.py:163
 msgid "Данные о компании"
 msgstr "Company Details"
 
-#: .\main\admin.py:151
+#: .\main\admin.py:164
 msgid "Технологический стек"
 msgstr "Tech Stack"
 
-#: .\main\admin.py:195
+#: .\main\admin.py:226
 msgid "Настройки"
 msgstr "Settings"
 
-#: .\main\admin.py:196
+#: .\main\admin.py:227
 msgid "Изображения"
 msgstr "Images"
 
@@ -96,8 +97,8 @@ msgid ""
 "Используйте дробные числа (например, 1.2), чтобы вставить запись между "
 "целыми числами без переименования остальных"
 msgstr ""
-"Use decimal numbers (e.g., 1.2) to insert an entry between "
-"integers without renumbering the others"
+"Use decimal numbers (e.g., 1.2) to insert an entry between integers without "
+"renumbering the others"
 
 #: .\main\models.py:35
 msgid "Порядок"
@@ -107,7 +108,8 @@ msgstr "Order"
 msgid ""
 "Номер телефона должен быть в формате: \"+79991234567\". От 9 до 15 цифр."
 msgstr ""
-"Phone number must be in the format: \"+79991234567\". Up to 15 digits allowed."
+"Phone number must be in the format: \"+79991234567\". Up to 15 digits "
+"allowed."
 
 #: .\main\models.py:52
 msgid "Введите имя"
@@ -125,7 +127,7 @@ msgstr "Last name"
 msgid "Загрузите изображение"
 msgstr "Upload image"
 
-#: .\main\models.py:67 .\main\models.py:312
+#: .\main\models.py:67 .\main\models.py:314
 msgid "Изображение"
 msgstr "Image"
 
@@ -141,7 +143,7 @@ msgstr "Job title"
 msgid "Введите информацию о себе"
 msgstr "Enter your bio"
 
-#: .\main\models.py:80 .\main\models.py:270
+#: .\main\models.py:80 .\main\models.py:271
 msgid "Описание"
 msgstr "Description"
 
@@ -185,7 +187,7 @@ msgstr "LinkedIn"
 msgid "Введите ссылку на профиль GitHub"
 msgstr "Enter GitHub profile link"
 
-#: .\main\models.py:124 .\main\models.py:283
+#: .\main\models.py:124 .\main\models.py:285
 msgid "GitHub"
 msgstr "GitHub"
 
@@ -249,122 +251,194 @@ msgstr "Skill"
 msgid "Навыки"
 msgstr "Skills"
 
-#: .\main\models.py:207
+#: .\main\models.py:208
 msgid "Использованные навыки"
 msgstr "Skills used"
 
-#: .\main\models.py:208
+#: .\main\models.py:209
 msgid "Выберите конкретные навыки, которые вы применяли"
 msgstr "Select the specific skills you applied"
 
-#: .\main\models.py:214
+#: .\main\models.py:215
 msgid "Введите название компании"
 msgstr "Enter company name"
 
-#: .\main\models.py:215
+#: .\main\models.py:216
 msgid "Название компании"
 msgstr "Company name"
 
-#: .\main\models.py:221
+#: .\main\models.py:222
 msgid "Введите ссылку на сайт компании"
 msgstr "Enter company website link"
 
-#: .\main\models.py:222
+#: .\main\models.py:223
 msgid "Ссылка на сайт компании"
 msgstr "Company website link"
 
-#: .\main\models.py:228
+#: .\main\models.py:229
 msgid "Введите название своей позиции"
 msgstr "Enter your job title"
 
-#: .\main\models.py:229
+#: .\main\models.py:230
 msgid "Название позиции"
 msgstr "Job title"
 
-#: .\main\models.py:231
+#: .\main\models.py:232
 msgid "Дата начала работы в компании"
 msgstr "Start date"
 
-#: .\main\models.py:235
+#: .\main\models.py:236
 msgid "Дата окончания работы в компании"
 msgstr "End date"
 
-#: .\main\models.py:239
+#: .\main\models.py:240
 msgid "Работаете ли в компании в настоящее время?"
 msgstr "Do you currently work here?"
 
-#: .\main\models.py:240
+#: .\main\models.py:241
 msgid "Работа в настоящее время"
 msgstr "Currently working here"
 
-#: .\main\models.py:245
+#: .\main\models.py:246
 msgid "Введите свои достижения в компании"
 msgstr "Enter your achievements at the company"
 
-#: .\main\models.py:246
+#: .\main\models.py:247
 msgid "Достижения в компании"
 msgstr "Key achievements"
 
-#: .\main\models.py:254 .\main\models.py:255
+#: .\main\models.py:255 .\main\models.py:256
 msgid "Опыт"
 msgstr "Experience"
 
-#: .\main\models.py:263
+#: .\main\models.py:264
 msgid "Введите название проекта"
 msgstr "Enter project name"
 
-#: .\main\models.py:264
+#: .\main\models.py:265
 msgid "Название проекта"
 msgstr "Project name"
 
-#: .\main\models.py:269
+#: .\main\models.py:270
 msgid "Введите описание проекта"
 msgstr "Enter project description"
 
-#: .\main\models.py:275
+#: .\main\models.py:277
 msgid "Выбор навыка или технологии"
 msgstr "Select skill or technology"
 
-#: .\main\models.py:276
+#: .\main\models.py:278
 msgid "Навык или технология"
 msgstr "Skill or technology"
 
-#: .\main\models.py:282
+#: .\main\models.py:284
 msgid "Введите ссылку на GitHub"
 msgstr "Enter GitHub link"
 
-#: .\main\models.py:289
+#: .\main\models.py:291
 msgid "Введите ссылку на Live Demo"
 msgstr "Enter Live Demo link"
 
-#: .\main\models.py:290
+#: .\main\models.py:292
 msgid "Ссылка на Live Demo"
 msgstr "Live Demo link"
 
-#: .\main\models.py:298
+#: .\main\models.py:300
 msgid "Проект"
 msgstr "Project"
 
-#: .\main\models.py:299
+#: .\main\models.py:301
 msgid "Проекты"
 msgstr "Projects"
 
-#: .\main\models.py:326
+#: .\main\models.py:328
 msgid "Фотография"
 msgstr "Photo"
 
-#: .\main\models.py:327
+#: .\main\models.py:329
 msgid "Галерея проекта"
 msgstr "Project gallery"
 
-#: .\main\views.py:121
+#: .\main\translation_dict.py:8
+msgid "ОБО МНЕ"
+msgstr "ABOUT"
+
+#: .\main\translation_dict.py:9
+msgid "ОПЫТ"
+msgstr "EXPERIENCE"
+
+#: .\main\translation_dict.py:10
+msgid "ПРОЕКТЫ"
+msgstr "PROJECTS"
+
+#: .\main\translation_dict.py:11
+msgid "КОНТАКТЫ"
+msgstr "CONTACT"
+
+#: .\main\translation_dict.py:13
+msgid "Давид Хурцидзе. Все права защищены."
+msgstr "David Khurtsidze. All rights reserved."
+
+#: .\main\translation_dict.py:17
+msgid "Введите ваше имя"
+msgstr "Enter your name"
+
+#: .\main\translation_dict.py:18
+msgid "Введите корректный email"
+msgstr "Enter a valid email address"
+
+#: .\main\translation_dict.py:19
+msgid "Укажите тему"
+msgstr "Please enter a subject"
+
+#: .\main\translation_dict.py:20
+msgid "Введите текст сообщения"
+msgstr "Message is required"
+
+#: .\main\translation_dict.py:23
+msgid "Сообщение успешно отправлено!"
+msgstr "Message sent successfully!"
+
+#: .\main\translation_dict.py:24
+msgid "Отправляем..."
+msgstr "Sending..."
+
+#: .\main\translation_dict.py:25
+msgid "Отправить"
+msgstr "Submit"
+
+#: .\main\translation_dict.py:29
+msgid "Нет доступных записей"
+msgstr "No entries available"
+
+#: .\main\translation_dict.py:32
+msgid "Технологии"
+msgstr "Tech Stack"
+
+#: .\main\translation_dict.py:33
+msgid "Фронтенд"
+msgstr "Frontend"
+
+#: .\main\translation_dict.py:34
+msgid "Бэкенд"
+msgstr "Backend"
+
+#: .\main\translation_dict.py:35
+msgid "Список навыков пуст"
+msgstr "Skill list is empty"
+
+#: .\main\translation_dict.py:38
+msgid "по настоящее время"
+msgstr "Present"
+
+#: .\main\views.py:122
 msgid "Ваше сообщение успешно отправлено"
 msgstr "Your message has been sent successfully"
 
-#: .\main\views.py:127
+#: .\main\views.py:128
 msgid "Проверка безопасности не пройдена. Попробуйте еще раз."
 msgstr "Security check failed. Please try again."
 
-#: .\main\views.py:128
+#: .\main\views.py:129
 msgid "Низкий рейтинг reCAPTCHA. Попробуйте обновить страницу."
 msgstr "Low reCAPTCHA score. Please refresh the page."
