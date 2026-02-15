@@ -8,11 +8,20 @@ def getTranslateDict():
                 'about': _('ОБО МНЕ'),
                 'experience': _('ОПЫТ'),
                 'projects': _('ПРОЕКТЫ'),
-                'contacts': _('КОНТАКТЫ')
+                'contact': _('КОНТАКТЫ')
             },
             'copyright': _('Давид Хурцидзе. Все права защищены.')
         },
-        'contacts': {
+        'profile': {
+            'technologies': _('Технологии'),
+            'frontend': _('Фронтенд'),
+            'backend': _('Бэкенд'),
+            'info': _('Список навыков пуст')
+        },
+        'experience': {
+            'info': _('Нет доступных записей')
+        },
+        'contact': {
             'errors': {
                 'name': _('Введите ваше имя'),
                 'email': _('Введите корректный email'),
@@ -24,15 +33,6 @@ def getTranslateDict():
                 'sending': _('Отправляем...'),
                 'submit ': _('Отправить')
             }
-        },
-        'experience': {
-            'info': _('Нет доступных записей')
-        },
-        'profile': {
-            'technologies': _('Технологии'),
-            'frontend': _('Фронтенд'),
-            'backend': _('Бэкенд'),
-            'info': _('Список навыков пуст')
         },
         'utils': {
             'present': _('по настоящее время')
