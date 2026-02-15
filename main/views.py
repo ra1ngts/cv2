@@ -9,7 +9,7 @@ import requests
 
 from cv2 import settings
 from .email import send_letter
-from .forms import ContactsForm
+from .forms import ContactForm
 from .models import (
     Profile,
     SkillCategory,
@@ -95,7 +95,7 @@ def index(request):
     if request.headers.get('Accept') == 'application/json':
         try:
             if request.method == 'POST':
-                form = ContactsForm(request.POST)
+                form = ContactForm(request.POST)
 
                 if form.is_valid():
                     name = form.cleaned_data['name']
@@ -135,11 +135,11 @@ def index(request):
                         'errors': form.errors.get_json_data()
                     })
 
-            form = ContactsForm()
+            form = ContactForm()
 
             return JsonResponse({
                 'status': 'success',
-                'translate': getTranslateDict(),
+                'translation': getTranslateDict(),
                 'profile': ResultEncoder(Profile.get_profile_data()),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
                 'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
