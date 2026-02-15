@@ -226,11 +226,12 @@
       </div>
     </div>
 
-    <h2 class="pt-8 text-xl sm:text-3xl font-bold">Tech Stack</h2>
+    <h2 class="pt-8 pb-4 text-xl sm:text-3xl font-bold">{stateCtx.translation.profile?.technologies}</h2>
+    <hr class="py-2 border-gray-500/50 opacity-50" />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 pt-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
       <div class="flex flex-col">
-        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">Frontend</h3>
+        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">{stateCtx.translation.profile?.frontend}</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.frontendSkills as skill}
@@ -242,7 +243,7 @@
       </div>
 
       <div class="flex flex-col">
-        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">Backend</h3>
+        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">{stateCtx.translation.profile?.backend}</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.backendSkills as skill}
@@ -308,7 +309,7 @@
           </div>
         {/each}
       {:else}
-        <p>No skills available</p>
+        <p>{stateCtx.translation.profile?.info}</p>
       {/if}
     </div>
 
