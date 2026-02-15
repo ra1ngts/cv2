@@ -17,19 +17,19 @@
     checkFields();
 
     if (!stateCtx.contactsData.name) {
-      stateCtx.formErrors['name'] = stateCtx.translation.contact.errors.name;
+      stateCtx.formErrors['name'] = stateCtx.translation.contact?.errors.name;
     }
 
     if (!isEmailValidate(stateCtx.contactsData.email)) {
-      stateCtx.formErrors['email'] = stateCtx.translation.contact.errors.email;
+      stateCtx.formErrors['email'] = stateCtx.translation.contact?.errors.email;
     }
 
     if (!stateCtx.contactsData.subject) {
-      stateCtx.formErrors['subject'] = stateCtx.translation.contact.errors.subject;
+      stateCtx.formErrors['subject'] = stateCtx.translation.contact?.errors.subject;
     }
 
     if (!stateCtx.contactsData.message) {
-      stateCtx.formErrors['message'] = stateCtx.translation.contact.errors.message;
+      stateCtx.formErrors['message'] = stateCtx.translation.contact?.errors.message;
     }
 
     if (Object.keys(stateCtx.formErrors).length > 0) {
@@ -73,7 +73,7 @@
 
       if (result.status === 'success') {
         stateCtx.contactsData = { name: '', email: '', subject: '', message: '' };
-        showToast(stateCtx.translation.contact.post.success, 'success');
+        showToast(stateCtx.translation.contact?.post.success, 'success');
         console.log('Message sent successfully!');
       } else {
         const cleanedErrors = {};
