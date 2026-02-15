@@ -31,7 +31,7 @@ def getTranslateDict():
             'post': {
                 'success': _('Сообщение успешно отправлено!'),
                 'sending': _('Отправляем...'),
-                'submit ': _('Отправить')
+                'submit': _('Отправить')
             }
         },
         'utils': {
