@@ -4,7 +4,7 @@
   import Profile from './Profile.svelte';
   import Experience from './Experience.svelte';
   import Projects from './Projects.svelte';
-  import Contacts from './Contacts.svelte';
+  import Contact from './Contact.svelte';
   import Toast from './Toast.svelte';
 
   const getCtx = async () => {
@@ -32,6 +32,7 @@
         stateCtx.experience = data.experience;
         stateCtx.projects = data.projects;
         stateCtx.form = data.form;
+        stateCtx.translation = data.translation;
         console.log('index (GET) successfully sending:', data);
       } else {
         console.error('index (GET) sending error:', data);
@@ -40,6 +41,17 @@
       console.error('Fetch error:', error);
     }
   };
+
+  const sections = $derived(
+    stateCtx.translation?.app?.sectionTitle
+      ? [
+          { id: 'about', label: stateCtx.translation.app.sectionTitle.about },
+          { id: 'experience', label: stateCtx.translation.app.sectionTitle.experience },
+          { id: 'projects', label: stateCtx.translation.app.sectionTitle.projects },
+          { id: 'contact', label: stateCtx.translation.app.sectionTitle.contact },
+        ]
+      : [],
+  );
 
   onMount(() => {
     getCtx();
@@ -58,12 +70,16 @@
       },
     );
 
-    stateCtx.sections.forEach((section) => {
-      const el = document.getElementById(section.id);
-      if (el) observer.observe(el);
-    });
+    $effect(() => {
+      if (sections.length > 0) {
+        sections.forEach((section) => {
+          const el = document.getElementById(section.id);
+          if (el) observer.observe(el);
+        });
+      }
 
-    return () => observer.disconnect();
+      return () => observer.disconnect();
+    });
   });
 
   function scrollTo(id) {
@@ -89,7 +105,7 @@
   <div class="fixed top-0 z-100 w-full bg-linear-to-b from-gray-950/80 to-gray-800/40 backdrop-blur-md">
     <div class="container p-4">
       <nav class="flex justify-between items-center gap-2 overflow-x-auto no-scrollbar">
-        {#each stateCtx.sections as section}
+        {#each sections as section}
           <button
             onclick={() => scrollTo(section.id)}
             class="transition-colors duration-300 hover:text-cyan-200 text-sm sm:text-base md:text-xl font-semibold {stateCtx.activeSection ===
@@ -117,21 +133,21 @@
     </section>
 
     <section id="experience" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl pb-4">Experience</h2>
+      <h2 class="text-4xl pb-4">{stateCtx.translation.app?.sectionTitle.experience}</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
       <Experience />
     </section>
 
     <section id="projects" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl pb-4">Projects</h2>
+      <h2 class="text-4xl pb-4">{stateCtx.translation.app?.sectionTitle.projects}</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
       <Projects />
     </section>
 
-    <section id="contacts" class="py-20 scroll-mt-20">
-      <h2 class="text-4xl pb-4">Contacts</h2>
+    <section id="contact" class="py-20 scroll-mt-20">
+      <h2 class="text-4xl pb-4">{stateCtx.translation.app?.sectionTitle.contact}</h2>
       <hr class="py-2 border-gray-500/50 opacity-50" />
-      <Contacts />
+      <Contact />
     </section>
 
     <Toast />
@@ -153,7 +169,8 @@
           />
         </svg>
         <div>
-          {new Date().getFullYear()} David Khurtsidze. All rights reserved.
+          {new Date().getFullYear()}
+          {stateCtx.translation?.app?.copyright}
         </div>
       </a>
     </div>
