@@ -55,5 +55,5 @@
     </a>
   {/each}
 {:else}
-  <p>No entries available</p>
+  <p>{stateCtx.translation.experience?.info}</p>
 {/if}
