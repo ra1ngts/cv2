@@ -17,19 +17,19 @@
     checkFields();
 
     if (!stateCtx.contactsData.name) {
-      stateCtx.formErrors['name'] = 'Please enter your name';
+      stateCtx.formErrors['name'] = stateCtx.translation.contact.errors.name;
     }
 
     if (!isEmailValidate(stateCtx.contactsData.email)) {
-      stateCtx.formErrors['email'] = 'Enter a valid email address';
+      stateCtx.formErrors['email'] = stateCtx.translation.contact.errors.email;
     }
 
     if (!stateCtx.contactsData.subject) {
-      stateCtx.formErrors['subject'] = 'Please enter a subject';
+      stateCtx.formErrors['subject'] = stateCtx.translation.contact.errors.subject;
     }
 
     if (!stateCtx.contactsData.message) {
-      stateCtx.formErrors['message'] = 'Message is required';
+      stateCtx.formErrors['message'] = stateCtx.translation.contact.errors.message;
     }
 
     if (Object.keys(stateCtx.formErrors).length > 0) {
@@ -73,7 +73,7 @@
 
       if (result.status === 'success') {
         stateCtx.contactsData = { name: '', email: '', subject: '', message: '' };
-        showToast('Message sent successfully!', 'success');
+        showToast(stateCtx.translation.contact.post.success, 'success');
         console.log('Message sent successfully!');
       } else {
         const cleanedErrors = {};
@@ -141,6 +141,6 @@
     disabled={stateCtx.isSubmitting}
     class="disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-cyan-400 disabled:shadow-none w-full py-3 px-4 bg-cyan-400 hover:bg-cyan-200 text-cyan-800 font-bold rounded-2xl transition-colors duration-300 shadow-lg shadow-cyan-400/30"
   >
-    {stateCtx.isSubmitting ? 'Sending...' : 'Submit'}
+    {stateCtx.isSubmitting ? stateCtx.translation.contact?.post.sending : stateCtx.translation.contact?.post.submit}
   </button>
 </div>
