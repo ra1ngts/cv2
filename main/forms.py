@@ -2,7 +2,7 @@ from django import forms
 from django.forms.widgets import EmailInput
 from django.utils.translation import gettext_lazy as _
 
-class ContactsForm(forms.Form):
+class ContactForm(forms.Form):
     name = forms.CharField(
         label=_('Имя'),
         max_length=100,
