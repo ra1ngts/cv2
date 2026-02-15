@@ -9,6 +9,7 @@ export const stateCtx = $state({
     experience: [],
     projects: [],
     form: {},
+    translation: {},
     contactsData: {
         name: '',
         subject: '',
@@ -24,15 +25,9 @@ export const stateCtx = $state({
         type: 'success'
     },
     activeSection: 'about',
-    sections: [
-        { id: 'about', label: 'About' },
-        { id: 'experience', label: 'Experience' },
-        { id: 'projects', label: 'Projects' },
-        { id: 'contacts', label: 'Contacts' },
-    ]
-})
+});
 
-export const contactsForm = (recaptcha_token = null) => {
+export const contactForm = (recaptcha_token = null) => {
   const form = new FormData();
   form.set('name', stateCtx.contactsData.name || '');
   form.set('subject', stateCtx.contactsData.subject || '');
@@ -43,6 +38,6 @@ export const contactsForm = (recaptcha_token = null) => {
     form.set('recaptcha_token', recaptcha_token);
   }
 
-  console.log('contactsForm has sent data:', Object.fromEntries(form.entries()));
+  console.log('contactForm has sent data:', Object.fromEntries(form.entries()));
   return form;
 };
