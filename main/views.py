@@ -141,20 +141,32 @@ def index(request):
                 'status': 'success',
                 'translation': getTranslateDict(),
                 'profile': ResultEncoder(Profile.get_profile_data()),
-                'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related('skills__image')],
-                'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True)],
-                'certificates': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Certificate')],
-                'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend')],
-                'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend')],
-                'experience': [ResultEncoder(item) for item in Experience.objects.filter(is_published=True)],
+                'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related(
+                    Prefetch(
+                        'skills',
+                        queryset=Skill.objects.filter(is_published=True).select_related('image')
+                    )
+                )],
+                'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True).select_related('category', 'image')],
+                'certificates': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Certificate').select_related('category', 'image')],
+                'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend').select_related('category', 'image')],
+                'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend').select_related('category', 'image')],
+                'experience': [
+                    ResultEncoder(item) for item in Experience.objects.filter(is_published=True).prefetch_related(
+                        Prefetch(
+                            'skills',
+                            queryset=Skill.objects.select_related('category', 'image')
+                        )
+                    )
+                ],
                 'projects': [ResultEncoder(item) for item in Project.objects.filter(is_published=True).prefetch_related(
                     Prefetch(
                         'technologies',
-                        queryset=Skill.objects.select_related('category')
+                        queryset=Skill.objects.select_related('category', 'image')
                     ),
                     Prefetch(
                         'images',
-                        queryset=ProjectImage.objects.filter(is_published=True),
+                        queryset=ProjectImage.objects.filter(is_published=True).select_related('image'),
                     )
                 ).order_by('order_by')],
                 'form': {
