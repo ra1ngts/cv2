@@ -226,12 +226,12 @@
       </div>
     </div>
 
-    <h2 class="pt-8 pb-4 text-xl sm:text-3xl font-bold">{stateCtx.translation.profile?.technologies}</h2>
+    <h2 class="pt-4 sm:pt-8 pb-2 sm:pb-4 text-xl sm:text-2xl font-bold">{stateCtx.translation.profile?.technologies}</h2>
     <hr class="py-2 border-gray-500/50 opacity-50" />
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4">
       <div class="flex flex-col">
-        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">{stateCtx.translation.profile?.frontend}</h3>
+        <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.frontend}</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.frontendSkills as skill}
@@ -243,10 +243,22 @@
       </div>
 
       <div class="flex flex-col">
-        <h3 class="text-lg sm:text-2xl pb-2 sm:pb-4">{stateCtx.translation.profile?.backend}</h3>
+        <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.backend}</h3>
 
         <div class="flex flex-wrap gap-2">
           {#each stateCtx.backendSkills as skill}
+            <div class="rounded-full bg-gray-800 p-2 sm:p-3">
+              <img src={skill.image} alt={skill.name} class="w-4 h-4 sm:w-6 sm:h-6 object-contain" />
+            </div>
+          {/each}
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.tools}</h3>
+
+        <div class="flex flex-wrap gap-2">
+          {#each stateCtx.tools as skill}
             <div class="rounded-full bg-gray-800 p-2 sm:p-3">
               <img src={skill.image} alt={skill.name} class="w-4 h-4 sm:w-6 sm:h-6 object-contain" />
             </div>
