@@ -16,6 +16,7 @@ def getTranslateDict():
             'technologies': _('Технологии'),
             'frontend': _('Фронтенд'),
             'backend': _('Бэкенд'),
+            'tools': _('Инструменты'),
             'info': _('Список навыков пуст')
         },
         'experience': {
