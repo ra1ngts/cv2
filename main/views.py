@@ -151,6 +151,7 @@ def index(request):
                 'certificates': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Certificate').select_related('category', 'image')],
                 'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend').select_related('category', 'image')],
                 'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend').select_related('category', 'image')],
+                'tools': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Tools').select_related('category', 'image')],
                 'experience': [
                     ResultEncoder(item) for item in Experience.objects.filter(is_published=True).prefetch_related(
                         Prefetch(
