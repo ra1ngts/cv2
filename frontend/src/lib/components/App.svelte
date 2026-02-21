@@ -29,6 +29,7 @@
         stateCtx.certificates = data.certificates;
         stateCtx.backendSkills = data.backendSkills;
         stateCtx.frontendSkills = data.frontendSkills;
+        stateCtx.tools = data.tools;
         stateCtx.experience = data.experience;
         stateCtx.projects = data.projects;
         stateCtx.form = data.form;
