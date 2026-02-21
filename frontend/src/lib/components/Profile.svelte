@@ -257,7 +257,7 @@
   </div>
 
   <div>
-    {stateCtx.profile.description}
+    {@html stateCtx.profile.description}
   </div>
 </div>
 
