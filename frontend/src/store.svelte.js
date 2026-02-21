@@ -6,6 +6,7 @@ export const stateCtx = $state({
     certificates: [],
     frontendSkills: [],
     backendSkills: [],
+    tools: [],
     experience: [],
     projects: [],
     form: {},
