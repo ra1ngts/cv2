@@ -19,6 +19,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from debug_toolbar.toolbar import debug_toolbar_urls
 
 from main import urls as main_urls
 
@@ -28,7 +29,7 @@ urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', include(main_urls, namespace='main')),
     prefix_default_language=True
-)
+) + debug_toolbar_urls()
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
