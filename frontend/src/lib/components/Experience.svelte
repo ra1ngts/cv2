@@ -40,9 +40,15 @@
               <div class="flex flex-wrap flex-row gap-2">
                 {#each entry.skills as skill}
                   {#if skill.category.name !== 'Certificate'}
-                    <div class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3">
+                    <div
+                      class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group cursor-pointer"
+                    >
                       {#if skill.image}
-                        <img src={skill.image} alt={skill.name} class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain" />
+                        <img
+                          src={skill.image}
+                          alt={skill.name}
+                          class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                        />
                       {/if}
                     </div>
                   {/if}
