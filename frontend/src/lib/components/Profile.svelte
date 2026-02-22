@@ -235,10 +235,10 @@
       <div class="flex flex-col">
         <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.frontend}</h3>
 
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.frontendSkills as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 hover:bg-gray-300 group cursor-pointer"
+              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
@@ -253,10 +253,10 @@
       <div class="flex flex-col">
         <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.backend}</h3>
 
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.backendSkills as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 hover:bg-gray-300 group cursor-pointer"
+              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
@@ -271,10 +271,10 @@
       <div class="flex flex-col">
         <h3 class="pb-2 sm:pb-4">{stateCtx.translation.profile?.tools}</h3>
 
-        <div class="flex flex-wrap gap-2">
+        <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.tools as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 hover:bg-gray-300 group cursor-pointer"
+              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
