@@ -72,8 +72,8 @@
 </script>
 
 <div
-  class="projects pt-4 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
-        hover:shadow-2xl hover:shadow-cyan-950/20 group block"
+  class="projects pt-4 rounded-2xl transition-all duration-300 backdrop-blur-sm shadow-2xl bg-white/5 lg:bg-transparent lg:backdrop-blur-none lg:hover:bg-white/5 lg:hover:backdrop-blur-md
+        lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20 group block"
 >
   <div class="swiper swiper-projects">
     <div class="swiper-wrapper">
@@ -81,8 +81,8 @@
         <div class="swiper-slide">
           <div
             class={item.images.length > 0
-              ? 'grid grid-cols-1 sm:grid-cols-2 sm:gap-4 gap-2 px-0 lg:px-10'
-              : 'grid grid-cols-1 sm:gap-4 gap-2 px-0 lg:px-10'}
+              ? 'grid grid-cols-1 sm:grid-cols-2 sm:gap-4 gap-2 px-4 lg:px-10'
+              : 'grid grid-cols-1 sm:gap-4 gap-2 px-4 lg:px-10'}
           >
             {#if item.images.length > 0}
               <div class="w-full h-80">
@@ -90,7 +90,7 @@
                   <img
                     src={item.images[0]}
                     alt={item.title}
-                    class="w-full h-full object-cover rounded-2xl cursor-pointer opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    class="w-full h-full object-cover rounded-2xl cursor-pointer opacity-100 lg:opacity-90 lg:group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </a>
 
@@ -108,9 +108,11 @@
 
             <div class="col-span-1 flex flex-col h-80">
               <div
-                class="grid grid-cols-[1fr_auto_auto] py-2 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-gray-500 [&_svg]:hover:fill-cyan-200"
+                class="grid grid-cols-[1fr_auto_auto] py-2 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-cyan-200 lg:[&_svg]:fill-gray-500 lg:[&_svg]:hover:fill-cyan-200"
               >
-                <h3 class="text-lg sm:text-2xl font-bold transition-colors duration-300 group-hover:text-cyan-200">
+                <h3
+                  class="text-lg sm:text-2xl font-bold transition-colors duration-300 text-cyan-200 lg:text-gray-500 lg:group-hover:text-cyan-200"
+                >
                   {@html item.title}
                 </h3>
 
@@ -162,13 +164,13 @@
                 <div class="flex flex-wrap gap-2 items-center sm:pt-4 pt-2 group">
                   {#each item.technologies as skill}
                     <div
-                      class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
+                      class="flex items-center rounded-full bg-gray-300 lg:bg-gray-800 p-2 sm:p-3 transition-colors duration-300 lg:group-hover:bg-gray-300"
                     >
                       <img
                         src={skill.image}
                         alt={skill.name}
                         title={skill.name}
-                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
                       />
                     </div>
                   {/each}
