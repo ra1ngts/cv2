@@ -108,10 +108,10 @@
 
             <div class="col-span-1 flex flex-col h-80">
               <div
-                class="grid grid-cols-[1fr_auto_auto] py-2 [&_svg]:h-8 [&_svg]:w-8 [&_svg]:fill-cyan-200 lg:[&_svg]:fill-gray-500 lg:[&_svg]:hover:fill-cyan-200"
+                class="grid grid-cols-[1fr_auto_auto] py-2 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:fill-cyan-200 lg:[&_svg]:fill-gray-500 lg:[&_svg]:hover:fill-cyan-200"
               >
                 <h3
-                  class="text-lg sm:text-2xl font-bold transition-colors duration-300 text-cyan-200 lg:text-gray-500 lg:group-hover:text-cyan-200"
+                  class="sm:text-lg font-bold transition-colors duration-300 text-cyan-200 lg:text-gray-500 lg:group-hover:text-cyan-200"
                 >
                   {@html item.title}
                 </h3>
@@ -170,7 +170,7 @@
                         src={skill.image}
                         alt={skill.name}
                         title={skill.name}
-                        class="flex w-7 h-7 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
+                        class="flex w-6 h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
                       />
                     </div>
                   {/each}
