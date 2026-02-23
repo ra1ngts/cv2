@@ -18,6 +18,7 @@
     const swiperProjects = new Swiper('.swiper-projects', {
       modules: [Navigation, Pagination],
       spaceBetween: 30,
+      watchOverflow: true,
       loop: false,
       pagination: {
         el: '.swiper-pagination-projects',
@@ -148,14 +149,16 @@
               </div>
 
               {#if item.technologies.length > 0}
-                <div class="flex flex-wrap gap-2 items-center sm:pt-4 pt-2">
+                <div class="flex flex-wrap gap-2 items-center sm:pt-4 pt-2 group">
                   {#each item.technologies as skill}
-                    <div class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3">
+                    <div
+                      class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
+                    >
                       <img
                         src={skill.image}
                         alt={skill.name}
                         title={skill.name}
-                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain"
+                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
                       />
                     </div>
                   {/each}
