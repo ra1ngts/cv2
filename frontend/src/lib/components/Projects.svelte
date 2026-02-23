@@ -164,13 +164,13 @@
                 <div class="flex flex-wrap gap-2 items-center sm:pt-4 pt-2 group">
                   {#each item.technologies as skill}
                     <div
-                      class="flex items-center rounded-full bg-gray-300 lg:bg-gray-800 p-2 sm:p-3 transition-colors duration-300 lg:group-hover:bg-gray-300"
+                      class="flex items-center rounded-full bg-gray-300 lg:bg-gray-800 p-1 sm:p-2 transition-colors duration-300 lg:group-hover:bg-gray-300"
                     >
                       <img
                         src={skill.image}
                         alt={skill.name}
                         title={skill.name}
-                        class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
+                        class="flex w-7 h-7 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
                       />
                     </div>
                   {/each}
