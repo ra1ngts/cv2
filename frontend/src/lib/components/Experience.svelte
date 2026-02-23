@@ -10,7 +10,7 @@
         class="grid sm:grid-cols-3 grid-cols-1 sm:gap-4 gap-2 p-2 md:p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
         hover:shadow-2xl hover:shadow-cyan-950/20"
       >
-        <div class="col-span-1 flex items-center gap-2 [&_svg]:fill-gray-500">
+        <div class="col-span-1 flex gap-2 [&_svg]:fill-gray-500">
           <div>
             <svg class="w-full h-6 object-cover" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
               ><path
