@@ -2,7 +2,7 @@
   import { stateCtx } from '../../store.svelte';
 
   import Swiper from 'swiper';
-  import { Navigation, Pagination } from 'swiper/modules';
+  import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
   import 'swiper/css';
   import 'swiper/css/navigation';
   import 'swiper/css/pagination';
@@ -15,11 +15,12 @@
 
   $effect(() => {
     const swiperSkills = new Swiper('.swiper-skills', {
-      modules: [Navigation, Pagination],
+      modules: [Navigation, Pagination, Mousewheel],
       slidesPerView: 3,
       spaceBetween: 30,
       watchOverflow: true,
       loop: false,
+      mousewheel: true,
       pagination: {
         el: '.swiper-pagination-skills',
         clickable: true,
