@@ -156,11 +156,11 @@
     <div class="flex py-4 items-center justify-center text-gray-800 gap-2 transition-colors duration-300 group">
       <a
         href="mailto:{stateCtx.profile.email}"
-        class="flex items-center gap-2 transition-colors duration-300 group-hover:text-cyan-200 text-sm sm:text-base"
+        class="flex items-center gap-2 transition-colors duration-300 group-hover:text-cyan-200 text-xs sm:text-lg"
         aria-label="Mail to: {stateCtx.profile.email}"
       >
         <svg
-          class="h-8 w-8 sm:h-10 sm:w-10 fill-gray-800 transition-colors duration-300 group-hover:fill-cyan-200"
+          class="h-7 w-7 sm:h-8 sm:w-8 fill-gray-800 transition-colors duration-300 group-hover:fill-cyan-200"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
