@@ -170,7 +170,7 @@
                         src={skill.image}
                         alt={skill.name}
                         title={skill.name}
-                        class="flex w-5 h-5 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:opacity-60 lg:group-hover:opacity-100 lg:group-hover:grayscale-0"
+                        class="flex w-5 h-5 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:group-hover:grayscale-0"
                       />
                     </div>
                   {/each}
