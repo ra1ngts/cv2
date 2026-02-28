@@ -309,7 +309,7 @@
                   <img
                     src={skill.image}
                     alt={skill.name}
-                    class="w-full h-full object-contain cursor-pointer opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    class="w-full h-full object-contain cursor-pointer opacity-100 lg:opacity-90 lg:group-hover:opacity-100 transition-opacity duration-300"
                   />
                 </a>
               </div>
