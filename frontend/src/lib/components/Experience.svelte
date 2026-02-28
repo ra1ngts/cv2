@@ -7,8 +7,8 @@
   {#each stateCtx.experience as entry}
     <a href={entry.company_url} target="_blank" rel="noopener noreferrer" class="group block">
       <div
-        class="grid sm:grid-cols-3 grid-cols-1 sm:gap-4 gap-2 p-2 md:p-4 rounded-2xl transition-all duration-300 hover:bg-white/5 hover:backdrop-blur-md
-        hover:shadow-2xl hover:shadow-cyan-950/20"
+        class="grid sm:grid-cols-3 mb-4 grid-cols-1 sm:gap-4 gap-2 p-2 md:p-4 rounded-2xl transition-all duration-300 bg-white/5 shadow-2xl backdrop-blur-md hover:bg-white/5 lg:bg-transparent lg:hover:backdrop-blur-md
+        lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20"
       >
         <div class="col-span-1 flex gap-2 [&_svg]:fill-gray-500">
           <div>
@@ -27,7 +27,7 @@
         <div class="col-span-2">
           <div class="grid grid-cols-1 sm:gap-4 gap-2">
             <h3
-              class="font-semibold text-sm sm:text-lg md:text-2xl transition-colors duration-300 group-hover:text-cyan-200"
+              class="sm:text-lg font-bold transition-colors duration-300 text-cyan-200 lg:text-gray-500 lg:group-hover:text-cyan-200"
             >
               {entry.position}, {entry.company}
             </h3>
@@ -41,13 +41,13 @@
                 {#each entry.skills as skill}
                   {#if skill.category.name !== 'Certificate'}
                     <div
-                      class="flex items-center rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group cursor-pointer"
+                      class="flex items-center rounded-full group-hover:bg-gray-300 group cursor-pointer bg-gray-300 lg:bg-gray-800 p-1 sm:p-2 transition-colors duration-300 lg:group-hover:bg-gray-300"
                     >
                       {#if skill.image}
                         <img
                           src={skill.image}
                           alt={skill.name}
-                          class="flex w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                          class="flex w-5 h-5 sm:w-6 sm:h-6 object-contain lg:grayscale transition-all duration-300 lg:group-hover:grayscale-0"
                         />
                       {/if}
                     </div>
