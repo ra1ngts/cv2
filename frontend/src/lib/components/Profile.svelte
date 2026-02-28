@@ -120,7 +120,7 @@
         </div>
 
         <div
-          class="flex gap-2 items-center [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-7 [&_svg]:w-7 [&_svg]:sm:h-6 [&_svg]:sm:w-6 [&_svg]:fill-gray-500 [&_svg]:group-hover:fill-cyan-200"
+          class="flex gap-2 items-center fill-cyan-200 [&_svg]:transition-colors [&_svg]:duration-300 [&_svg]:h-6 [&_svg]:w-6 lg:[&_svg]:fill-gray-500 lg:[&_svg]:group-hover:fill-cyan-200"
         >
           {#if stateCtx.profile.whatsapp}
             <a
@@ -239,12 +239,12 @@
         <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.frontendSkills as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
+              class="rounded-full p-1 sm:p-2 transition-colors duration-300 bg-gray-300 lg:bg-gray-800 lg:group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
                 alt={skill.name}
-                class="w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
               />
             </div>
           {/each}
@@ -257,12 +257,12 @@
         <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.backendSkills as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
+              class="rounded-full p-1 sm:p-2 transition-colors duration-300 bg-gray-300 lg:bg-gray-800 lg:group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
                 alt={skill.name}
-                class="w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
               />
             </div>
           {/each}
@@ -275,12 +275,12 @@
         <div class="flex flex-wrap gap-2 group">
           {#each stateCtx.tools as skill}
             <div
-              class="rounded-full bg-gray-800 p-2 sm:p-3 transition-colors duration-300 group-hover:bg-gray-300 group"
+              class="rounded-full p-1 sm:p-2 transition-colors duration-300 bg-gray-300 lg:bg-gray-800 lg:group-hover:bg-gray-300 group"
             >
               <img
                 src={skill.image}
                 alt={skill.name}
-                class="w-4 h-4 sm:w-6 sm:h-6 object-contain grayscale transition-all duration-300 opacity-60 group-hover:opacity-100 group-hover:grayscale-0"
+                class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
               />
             </div>
           {/each}
