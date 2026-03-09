@@ -15,8 +15,8 @@ export default defineConfig({
   },
   build: {
     outDir: resolve('../main/static/svelte/assets'),
-    chunkSizeWarningLimit: 1000,
     assetsDir: '',
+    chunkSizeWarningLimit: 1000,
     manifest: true,
     emptyOutDir: true,
     watch: {},
