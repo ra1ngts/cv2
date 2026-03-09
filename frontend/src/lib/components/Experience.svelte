@@ -53,7 +53,7 @@
           </div>
 
           <div class="text-sm">
-            {entry.achievements}
+            {@html entry.achievements}
           </div>
 
           {#if entry.skills && entry.skills.length > 0}
