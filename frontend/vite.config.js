@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/static/svelte/assets/',
+  base: '/static/svelte/',  //'/static/svelte/assets/',
   plugins: [tailwindcss(), svelte()],
   resolve: {
     alias: {
@@ -14,9 +14,10 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: resolve('../main/static/svelte/assets'),
+    // outDir: resolve('../main/static/svelte/assets'),
+    outDir: resolve('../main/static/svelte'), // билдим в static/svelte
+    assetsDir: 'assets',   // js/css будут в assets/
     chunkSizeWarningLimit: 1000,
-    assetsDir: '',
     manifest: true,
     emptyOutDir: true,
     watch: {},
