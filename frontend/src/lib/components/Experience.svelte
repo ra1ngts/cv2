@@ -37,7 +37,7 @@
               aria-label={entry.company_url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group block group/link"
+              class="group block group/link ps-2"
             >
               <svg
                 class="shrink-0 h-6 w-6 sm:h-7 sm:w-7 transition-colors duration-300 fill-current
