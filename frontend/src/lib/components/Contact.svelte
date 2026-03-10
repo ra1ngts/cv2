@@ -55,7 +55,7 @@
     const request = contactForm(token);
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('', {
         method: 'POST',
         body: request,
         headers: {
