@@ -161,6 +161,18 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'optimized': {
+            'size': (1600, 0),
+            'quality': 80,
+            'extension': 'webp',
+        },
+    },
+}
+
+THUMBNAIL_BASE_DIR = 'thumbnails'
+
 TABBED_ADMIN_USE_JQUERY_UI = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 'django.core.mail.backends.console.EmailBackend'

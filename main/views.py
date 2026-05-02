@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
 import requests
+from easy_thumbnails.files import get_thumbnailer
 
 from cv2 import settings
 from .email import send_letter
@@ -22,13 +23,28 @@ from .translation_dict import getTranslateDict
 from .utils import get_svelte_manifest
 
 
+def get_thumb(image_field, size=(800, 0), crop=False):
+    if not image_field:
+        return None
+
+    url_lower = image_field.url.lower()
+    if url_lower.endswith('.svg') or '.svg?' in url_lower:
+        return image_field.url
+
+    try:
+        options = {'size': size, 'crop': False, 'quality': 80, 'extension': 'webp'}
+        return get_thumbnailer(image_field).get_thumbnail(options).url
+    except Exception:
+        return image_field.url
+
+
 def ResultEncoder(obj):
     if isinstance(obj, Profile):
         return {
             'id': obj.id,
             'name': obj.name,
             'lastname': obj.lastname,
-            'image': obj.image.url if obj.image else None,
+            'image': get_thumb(obj.image, size=(300, 300), crop=True) if obj.image else None,
             'occupation': obj.occupation,
             'description': obj.description,
             'phone': obj.phone,
@@ -54,7 +70,7 @@ def ResultEncoder(obj):
                 'name': obj.category.name
             },
             'name': obj.name,
-            'image': obj.image.url if obj.image else None,
+            'image': get_thumb(obj.image, size=(1100, 0) if obj.category.name == 'Certificate' else (150, 150), crop=True if obj.category.name != 'Certificate' else False) if obj.image else None,
             'skill_url': obj.skill_url
         }
 
@@ -77,7 +93,7 @@ def ResultEncoder(obj):
             'title': obj.title,
             'description': obj.description,
             'images': [
-                img.image.url for img in obj.images.all() if img.image
+                get_thumb(img.image, size=(1600, 0)) for img in obj.images.all() if img.image
             ],
             'technologies': [{
                 'category': {
