@@ -173,6 +173,10 @@ THUMBNAIL_ALIASES = {
 
 THUMBNAIL_BASE_DIR = 'thumbnails'
 
+THUMBNAIL_PRESERVE_EXTENSIONS = False
+THUMBNAIL_EXTENSION = 'webp'
+THUMBNAIL_TRANSPARENCY_EXTENSION = 'webp'
+
 TABBED_ADMIN_USE_JQUERY_UI = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # 'django.core.mail.backends.console.EmailBackend'

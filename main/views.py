@@ -32,7 +32,7 @@ def get_thumb(image_field, size=(800, 0), crop=False):
         return image_field.url
 
     try:
-        options = {'size': size, 'crop': False, 'quality': 80, 'extension': 'webp'}
+        options = {'size': size, 'crop': crop, 'quality': 80}
         return get_thumbnailer(image_field).get_thumbnail(options).url
     except Exception:
         return image_field.url
