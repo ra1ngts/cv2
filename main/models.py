@@ -134,6 +134,10 @@ class Profile(Basic):
     def __str__(self):
         return self.name
 
+    @property
+    def get_title(self):
+        return f'{self.name} {self.lastname} - {self.occupation}'
+
     @classmethod
     def get_profile_data(cls):
         obj, created = cls.objects.get_or_create(pk=1)

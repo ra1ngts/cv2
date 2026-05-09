@@ -294,8 +294,8 @@
   </div>
 </div>
 
-<div class="skills mt-5 sm:mt-10 pt-4">
-  <div class="swiper swiper-skills">
+<div class="skills mt-5 sm:mt-10 pt-4 min-h-100 lg:min-h-100">
+  <div class="swiper swiper-skills min-h-100 lg:min-h-100">
     <div class="swiper-wrapper">
       {#if stateCtx.certificates.length > 0}
         {#each stateCtx.certificates as skill}
@@ -307,7 +307,7 @@
               <div class="h-64 overflow-hidden rounded-2xl bg-white">
                 <a href={skill.image} data-fancybox="skills-gallery-{skill.id}">
                   <img
-                    src={skill.image}
+                    src={skill.image} loading="lazy"
                     alt={skill.name}
                     class="w-full h-full object-contain cursor-pointer opacity-100 lg:opacity-90 lg:group-hover:opacity-100 transition-opacity duration-300"
                   />
