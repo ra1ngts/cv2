@@ -19,6 +19,7 @@
       slidesPerView: 3,
       spaceBetween: 30,
       watchOverflow: true,
+      lazyPreloadPrevNext: 1,
       loop: false,
       mousewheel: true,
       pagination: {
@@ -305,12 +306,18 @@
                 lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20"
             >
               <div class="h-64 overflow-hidden rounded-2xl bg-white">
-                <a href={skill.image} data-fancybox="skills-gallery-{skill.id}">
+                <a
+                  class="relative block w-full h-full overflow-hidden"
+                  href={skill.image}
+                  data-fancybox="skills-gallery-{skill.id}"
+                >
                   <img
-                    src={skill.image} loading="lazy"
+                    src={skill.image}
                     alt={skill.name}
                     class="w-full h-full object-contain cursor-pointer opacity-100 lg:opacity-90 lg:group-hover:opacity-100 transition-opacity duration-300"
+                    loading="lazy"
                   />
+                  <div class="swiper-lazy-preloader"></div>
                 </a>
               </div>
 

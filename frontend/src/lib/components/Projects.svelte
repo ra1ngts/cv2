@@ -86,12 +86,18 @@
           >
             {#if item.images.length > 0}
               <div class="w-full h-80">
-                <a href={item.images[0]} data-fancybox="projects-gallery-{item.id}">
+                <a
+                  class="relative block w-full h-full overflow-hidden"
+                  href={item.images[0]}
+                  data-fancybox="projects-gallery-{item.id}"
+                >
                   <img
                     src={item.images[0]}
                     alt={item.title}
                     class="w-full h-full object-cover rounded-2xl cursor-pointer opacity-100 lg:opacity-90 lg:group-hover:opacity-100 transition-opacity duration-300"
+                    loading="lazy"
                   />
+                  <div class="swiper-lazy-preloader"></div>
                 </a>
 
                 {#if item.images.length > 1}
