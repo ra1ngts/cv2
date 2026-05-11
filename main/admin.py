@@ -67,7 +67,6 @@ class ProfileAdmin(TranslationAdmin, TabbedModelAdmin):
     class Media:
         js = (
             'https://ajax.googleapis.com',
-            'https://ajax.googleapis.com',
             'modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -169,7 +168,6 @@ class ExperienceAdmin(TabbedModelAdmin, TranslationAdmin):
     class Media:
         js = (
             'https://ajax.googleapis.com',
-            'https://ajax.googleapis.com',
             'modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
@@ -231,7 +229,6 @@ class ProjectAdmin(TabbedModelAdmin, TranslationAdmin):
 
     class Media:
         js = (
-            'https://ajax.googleapis.com',
             'https://ajax.googleapis.com',
             'modeltranslation/js/tabbed_translation_fields.js',
         )
