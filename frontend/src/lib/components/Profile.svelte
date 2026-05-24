@@ -106,6 +106,7 @@
             src={stateCtx.profile.image}
             alt={stateCtx.profile.name}
             class="h-full max-h-40 object-cover aspect-square rounded-full"
+            loading="lazy"
           />
         </div>
       {/if}
@@ -246,6 +247,7 @@
                 src={skill.image}
                 alt={skill.name}
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
+                loading="lazy"
               />
             </div>
           {/each}
@@ -264,6 +266,7 @@
                 src={skill.image}
                 alt={skill.name}
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
+                loading="lazy"
               />
             </div>
           {/each}
@@ -282,6 +285,7 @@
                 src={skill.image}
                 alt={skill.name}
                 class="w-5 h-5 sm:w-6 sm:h-6 object-contain transition-all duration-300 lg:grayscale lg:group-hover:grayscale-0"
+                loading="lazy"
               />
             </div>
           {/each}
