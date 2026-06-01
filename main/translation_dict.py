@@ -22,6 +22,9 @@ def getTranslateDict():
         'experience': {
             'info': _('Нет доступных записей')
         },
+        'projects': {
+            'info': _('Нет доступных проектов')
+        },
         'contact': {
             'errors': {
                 'name': _('Введите ваше имя'),

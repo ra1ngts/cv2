@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte';
   import { stateCtx } from '../../store.svelte';
 
   import Swiper from 'swiper';
@@ -16,7 +15,11 @@
 
   let swiperSkills;
 
-  onMount(() => {
+  $effect(() => {
+    if (!stateCtx.certificates?.length || swiperSkills) {
+      return;
+    }
+
     swiperSkills = new Swiper('.swiper-skills', {
       modules: [Navigation, Pagination, Mousewheel],
       slidesPerView: 3,
@@ -99,14 +102,6 @@
       Fancybox.unbind("[data-fancybox^='skills-gallery-']");
       Fancybox.close();
     };
-  });
-
-  $effect(() => {
-    stateCtx.certificates?.length;
-
-    if (swiperSkills) {
-      swiperSkills?.update();
-    }
   });
 </script>
 
@@ -312,10 +307,10 @@
   </div>
 </div>
 
-<div class="skills mt-5 sm:mt-10 pt-4">
-  <div class="swiper swiper-skills min-h-100">
-    <div class="swiper-wrapper">
-      {#if stateCtx.certificates.length > 0}
+{#if stateCtx.certificates.length > 0}
+  <div class="skills mt-5 sm:mt-10 pt-4">
+    <div class="swiper swiper-skills min-h-100">
+      <div class="swiper-wrapper">
         {#each stateCtx.certificates as skill}
           <div class="swiper-slide h-auto! flex">
             <div
@@ -376,14 +371,14 @@
             </div>
           </div>
         {/each}
-      {:else}
-        <p>{stateCtx.translation.profile?.info}</p>
-      {/if}
+      </div>
+
+      <div class="swiper-button-prev swiper-button-prev-skills"></div>
+      <div class="swiper-button-next swiper-button-next-skills"></div>
     </div>
 
-    <div class="swiper-button-prev swiper-button-prev-skills"></div>
-    <div class="swiper-button-next swiper-button-next-skills"></div>
+    <div class="swiper-pagination-skills"></div>
   </div>
-
-  <div class="swiper-pagination-skills"></div>
-</div>
+{:else}
+  <p>{stateCtx.translation.profile?.info}</p>
+{/if}

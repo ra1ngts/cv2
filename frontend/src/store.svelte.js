@@ -1,5 +1,6 @@
 // stateCtx
 export const stateCtx = $state({
+    loading: true,
     profile: {},
     categories: [],
     skills: [],
