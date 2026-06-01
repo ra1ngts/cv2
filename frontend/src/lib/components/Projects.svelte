@@ -14,8 +14,10 @@
   import { Carousel } from '@fancyapps/ui/dist/carousel/';
   import '@fancyapps/ui/dist/carousel/carousel.css';
 
+  let swiperProjects;
+
   onMount(() => {
-    const swiperProjects = new Swiper('.swiper-projects', {
+    swiperProjects = new Swiper('.swiper-projects', {
       modules: [Navigation, Pagination],
       spaceBetween: 30,
       watchOverflow: true,
@@ -25,8 +27,8 @@
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-projects',
+        prevEl: '.swiper-button-prev-projects',
       },
       breakpoints: {
         320: {
@@ -48,26 +50,36 @@
       },
     });
 
-    if (stateCtx.skills && stateCtx.skills.length > 0) {
-      setTimeout(() => {
-        if (swiperProjects) {
-          swiperProjects.update();
-        }
-      }, 100);
-    }
-
     Fancybox.bind("[data-fancybox^='projects-gallery-']", {
       hideScrollbar: true,
       wheel: 'slide',
       backdropClick: 'close',
       Hash: false,
+      Carousel: {
+        Toolbar: {
+          display: {
+            left: ['counter'],
+            middle: [],
+            right: ['toggle1to1', 'thumbs', 'autoplay', 'close'],
+          },
+        },
+      },
     });
 
-    const carouselInstances = Array.from(document.querySelectorAll('.f-carousel')).map((el) => {
-      return Carousel(el, {
-        infinite: true,
-      });
-    });
+    return () => {
+      swiperProjects?.destroy(true, true);
+
+      Fancybox.unbind("[data-fancybox^='projects-gallery-']");
+      Fancybox.close();
+    };
+  });
+
+  $effect(() => {
+    stateCtx.projects?.length;
+
+    if (swiperProjects) {
+      swiperProjects.update();
+    }
   });
 </script>
 
@@ -189,8 +201,8 @@
       {/each}
     </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-button-prev-projects"></div>
+    <div class="swiper-button-next swiper-button-next-projects"></div>
   </div>
 
   <div class="swiper-pagination-projects"></div>

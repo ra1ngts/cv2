@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from 'svelte';
   import { stateCtx } from '../../store.svelte';
 
   import Swiper from 'swiper';
@@ -13,8 +14,10 @@
   import { Carousel } from '@fancyapps/ui/dist/carousel/';
   import '@fancyapps/ui/dist/carousel/carousel.css';
 
-  $effect(() => {
-    const swiperSkills = new Swiper('.swiper-skills', {
+  let swiperSkills;
+
+  onMount(() => {
+    swiperSkills = new Swiper('.swiper-skills', {
       modules: [Navigation, Pagination, Mousewheel],
       slidesPerView: 3,
       spaceBetween: 30,
@@ -27,8 +30,8 @@
         clickable: true,
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.swiper-button-next-skills',
+        prevEl: '.swiper-button-prev-skills',
       },
       breakpoints: {
         320: {
@@ -74,26 +77,36 @@
       },
     });
 
-    if (stateCtx.skills && stateCtx.skills.length > 0) {
-      setTimeout(() => {
-        if (swiperSkills) {
-          swiperSkills.update();
-        }
-      }, 100);
-    }
-
     Fancybox.bind("[data-fancybox^='skills-gallery-']", {
       hideScrollbar: true,
       wheel: 'slide',
       backdropClick: 'close',
       Hash: false,
+      Carousel: {
+        Toolbar: {
+          display: {
+            left: [],
+            middle: [],
+            right: ['close'],
+          },
+        },
+      },
     });
 
-    const carouselInstances = Array.from(document.querySelectorAll('.f-carousel')).map((el) => {
-      return Carousel(el, {
-        infinite: true,
-      });
-    });
+    return () => {
+      swiperSkills?.destroy(true, true);
+
+      Fancybox.unbind("[data-fancybox^='skills-gallery-']");
+      Fancybox.close();
+    };
+  });
+
+  $effect(() => {
+    stateCtx.certificates?.length;
+
+    if (swiperSkills) {
+      swiperSkills?.update();
+    }
   });
 </script>
 
@@ -299,8 +312,8 @@
   </div>
 </div>
 
-<div class="skills mt-5 sm:mt-10 pt-4 min-h-100 lg:min-h-100">
-  <div class="swiper swiper-skills min-h-100 lg:min-h-100">
+<div class="skills mt-5 sm:mt-10 pt-4">
+  <div class="swiper swiper-skills min-h-100">
     <div class="swiper-wrapper">
       {#if stateCtx.certificates.length > 0}
         {#each stateCtx.certificates as skill}
@@ -368,8 +381,8 @@
       {/if}
     </div>
 
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev swiper-button-prev-skills"></div>
+    <div class="swiper-button-next swiper-button-next-skills"></div>
   </div>
 
   <div class="swiper-pagination-skills"></div>
