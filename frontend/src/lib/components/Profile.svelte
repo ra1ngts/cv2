@@ -114,7 +114,8 @@
             src={stateCtx.profile.image}
             alt={stateCtx.profile.name}
             class="h-full max-h-40 object-cover aspect-square rounded-full"
-            loading="lazy"
+            loading="eager"
+            fetchpriority="high"
           />
         </div>
       {/if}

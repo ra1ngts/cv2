@@ -135,7 +135,7 @@ class Profile(Basic):
         return self.name
 
     @property
-    def get_title(self):
+    def title(self):
         return f'{self.name} {self.lastname} - {self.occupation}'
 
     @classmethod

@@ -1,5 +1,6 @@
 import os
 
+from django.core.cache import cache
 from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render
@@ -108,6 +109,8 @@ def ResultEncoder(obj):
 
 
 def index(request):
+    profile = Profile.get_profile_data()
+
     if request.headers.get('Accept') == 'application/json':
         try:
             if request.method == 'POST':
@@ -153,21 +156,47 @@ def index(request):
 
             form = ContactForm()
 
+            skills = Skill.objects.filter(is_published=True).select_related('category', 'image')
+            certificates = []
+            frontendSkills = []
+            backendSkills = []
+            tools = []
+
+            for skill in skills:
+                encoded = ResultEncoder(skill)
+
+                match skill.category.name:
+                    case 'Certificate':
+                        certificates.append(encoded)
+
+                    case 'Frontend':
+                        frontendSkills.append(encoded)
+
+                    case 'Backend':
+                        backendSkills.append(encoded)
+
+                    case 'Tools':
+                        tools.append(encoded)
+
+            translation = cache.get('translations')
+            if translation is None:
+                translation = getTranslateDict()
+                cache.set('translations', translation, 60 * 60)
+
             return JsonResponse({
                 'status': 'success',
-                'translation': getTranslateDict(),
-                'profile': ResultEncoder(Profile.get_profile_data()),
+                'translation': translation,
+                'profile': ResultEncoder(profile),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related(
                     Prefetch(
                         'skills',
                         queryset=Skill.objects.filter(is_published=True).select_related('image')
                     )
                 )],
-                'skills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True).select_related('category', 'image')],
-                'certificates': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Certificate').select_related('category', 'image')],
-                'frontendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Frontend').select_related('category', 'image')],
-                'backendSkills': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Backend').select_related('category', 'image')],
-                'tools': [ResultEncoder(skill) for skill in Skill.objects.filter(is_published=True, category__name='Tools').select_related('category', 'image')],
+                'certificates': certificates,
+                'frontendSkills': frontendSkills,
+                'backendSkills': backendSkills,
+                'tools': tools,
                 'experience': [
                     ResultEncoder(item) for item in Experience.objects.filter(is_published=True).prefetch_related(
                         Prefetch(
@@ -219,7 +248,7 @@ def index(request):
         'site_key': settings.RECAPTCHA_PUBLIC_KEY,
         'manifest_css': manifest.get('css', []),
         'manifest_js': manifest.get('file', ''),
-        'title': Profile.get_profile_data().get_title
+        'title': profile.title
     }
 
     return render(request, 'main/index.html', ctx)

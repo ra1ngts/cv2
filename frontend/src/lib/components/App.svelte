@@ -28,7 +28,6 @@
       if (data.status === 'success') {
         stateCtx.profile = data.profile;
         stateCtx.categories = data.categories;
-        stateCtx.skills = data.skills;
         stateCtx.certificates = data.certificates;
         stateCtx.backendSkills = data.backendSkills;
         stateCtx.frontendSkills = data.frontendSkills;
