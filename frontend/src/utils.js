@@ -67,7 +67,7 @@ export function checkFields() {
 }
 
 // showToast
-export function showToast(message, type = 'success') {
+export function showToast(message, type = stateCtx.toast.types.success) {
     stateCtx.toast = { show: true, message, type };
 
     setTimeout(() => {
