@@ -23,10 +23,7 @@ export const stateCtx = $state({
     toast: {
         show: false,
         message: '',
-        types: {
-          success: 'success',
-          error: 'error'
-        }
+        type: 'success',
     },
     activeSection: 'about',
 });

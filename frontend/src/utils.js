@@ -67,10 +67,14 @@ export function checkFields() {
 }
 
 // showToast
-export function showToast(message, type = stateCtx.toast.types.success) {
-    stateCtx.toast = { show: true, message, type };
+export function showToast(message, type = 'success') {
+    stateCtx.toast.message = message;
+    stateCtx.toast.type = type;
+    stateCtx.toast.show = true;
 
     setTimeout(() => {
-        stateCtx.toast.show = false;
+        if (stateCtx.toast) {
+            stateCtx.toast.show = false;
+        }
     }, 3000);
 }

@@ -73,7 +73,7 @@
 
       if (result.status === 'success') {
         stateCtx.contactsData = { name: '', email: '', subject: '', message: '' };
-        showToast(stateCtx.translation.contact?.post.success, stateCtx.toast.types.success);
+        showToast(stateCtx.translation.contact?.post.success, 'success');
         console.log('Message sent successfully!');
       } else {
         const cleanedErrors = {};
@@ -87,13 +87,13 @@
         stateCtx.formErrors = cleanedErrors;
 
         const errorMessage = result.message;
-        showToast(errorMessage, stateCtx.toast.types.error);
+        showToast(errorMessage, 'error');
         console.log('stateCtx.formErrors', stateCtx.formErrors);
         console.log(result.message);
       }
     } catch (error) {
       console.error('Network Error:', error);
-      showToast('Network Error', stateCtx.toast.types.error);
+      showToast('Network Error', 'error');
     } finally {
       stateCtx.isSubmitting = false;
     }
