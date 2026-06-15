@@ -80,7 +80,7 @@
 
 {#if stateCtx.projects.length > 0}
   <div
-    class="projects pt-4 rounded-2xl transition-all duration-300 backdrop-blur-sm shadow-2xl bg-white/5 lg:bg-transparent lg:backdrop-blur-none lg:hover:bg-white/5 lg:hover:backdrop-blur-md
+    class="projects pt-4 rounded-3xl transition-all duration-300 backdrop-blur-sm shadow-2xl bg-white/5 lg:bg-transparent lg:backdrop-blur-none lg:hover:bg-white/5 lg:hover:backdrop-blur-md
         lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20 group block"
   >
     <div class="swiper swiper-projects">

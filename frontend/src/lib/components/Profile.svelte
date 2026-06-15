@@ -315,7 +315,7 @@
         {#each stateCtx.certificates as skill}
           <div class="swiper-slide h-auto! flex">
             <div
-              class="group h-full flex flex-col gap-4 px-4 lg:px-10 py-4 rounded-2xl transition-all duration-300 bg-white/5 shadow-2xl backdrop-blur-md hover:bg-white/5 lg:bg-transparent lg:hover:backdrop-blur-md
+              class="group h-full flex flex-col gap-4 px-4 lg:px-10 py-4 rounded-3xl transition-all duration-300 bg-white/5 shadow-2xl backdrop-blur-md hover:bg-white/5 lg:bg-transparent lg:hover:backdrop-blur-md
                 lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20"
             >
               <div class="h-64 overflow-hidden rounded-2xl bg-white">

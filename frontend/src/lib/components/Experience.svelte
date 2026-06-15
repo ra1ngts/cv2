@@ -6,7 +6,7 @@
 {#if stateCtx.experience.length > 0}
   {#each stateCtx.experience as entry}
     <div
-      class="grid sm:grid-cols-3 mb-4 grid-cols-1 group sm:gap-4 gap-2 p-2 md:p-4 rounded-2xl transition-all duration-300 bg-white/5 shadow-2xl backdrop-blur-md hover:bg-white/5 lg:bg-transparent lg:hover:backdrop-blur-md
+      class="grid sm:grid-cols-3 mb-4 grid-cols-1 group sm:gap-4 gap-2 p-4 rounded-3xl transition-all duration-300 bg-white/5 shadow-2xl backdrop-blur-md hover:bg-white/5 lg:bg-transparent lg:hover:backdrop-blur-md
         lg:hover:shadow-2xl lg:hover:shadow-cyan-950/20"
     >
       <div class="col-span-1 flex gap-2 [&_svg]:fill-gray-500">
