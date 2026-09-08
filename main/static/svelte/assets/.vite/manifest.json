@@ -1,33 +1,11 @@
 {
   "index.html": {
-    "file": "index-DOugbKhB.js",
+    "file": "index-cxBSb5Cs.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "index-C08szega.css"
-    ],
-    "assets": [
-      "Roboto-Bold-Hc5RoILo.woff2",
-      "Roboto-SemiBold-DYOFH5_n.woff2",
-      "Roboto-Regular-36LIHh1U.woff2",
-      "Roboto-Light-vIB0yEwp.woff2"
+      "index-CfLL6Pbk.css"
     ]
-  },
-  "public/fonts/Roboto-Bold.woff2": {
-    "file": "Roboto-Bold-Hc5RoILo.woff2",
-    "src": "public/fonts/Roboto-Bold.woff2"
-  },
-  "public/fonts/Roboto-Light.woff2": {
-    "file": "Roboto-Light-vIB0yEwp.woff2",
-    "src": "public/fonts/Roboto-Light.woff2"
-  },
-  "public/fonts/Roboto-Regular.woff2": {
-    "file": "Roboto-Regular-36LIHh1U.woff2",
-    "src": "public/fonts/Roboto-Regular.woff2"
-  },
-  "public/fonts/Roboto-SemiBold.woff2": {
-    "file": "Roboto-SemiBold-DYOFH5_n.woff2",
-    "src": "public/fonts/Roboto-SemiBold.woff2"
   }
 }

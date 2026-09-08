@@ -82,6 +82,10 @@
   margin-right: auto;
 }
 
+.grecaptcha-badge {
+  visibility: hidden !important;
+}
+
 .gradient-to-b {
   @apply bg-linear-to-b from-gray-300 to-gray-500 bg-clip-text text-transparent;
 }
