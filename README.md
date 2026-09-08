@@ -1,8 +1,8 @@
-### :globe_with_meridians: "Personal CV & Portfolio"
+# :globe_with_meridians: "Personal CV & Portfolio"
 
 ---
 
-#### About project :
+### About project :
 - __Personal CV & Portfolio__ — a personal website developed to showcase my professional experience, technical skills, certifications, and selected web development projects.
 - The website is actively maintained and updated as new projects, skills, and professional experience are added.
 
