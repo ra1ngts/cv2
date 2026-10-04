@@ -4,7 +4,7 @@ from django.core.cache import cache
 from django.db.models import Prefetch
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext_lazy as _, get_language
 
 import requests
 from easy_thumbnails.files import get_thumbnailer
@@ -111,6 +111,8 @@ def ResultEncoder(obj):
 def index(request):
     profile = Profile.get_profile_data()
 
+    lang = get_language()
+
     if request.headers.get('Accept') == 'application/json':
         try:
             if request.method == 'POST':
@@ -178,14 +180,17 @@ def index(request):
                     case 'Tools':
                         tools.append(encoded)
 
-            translation = cache.get('translations')
-            if translation is None:
-                translation = getTranslateDict()
-                cache.set('translations', translation, 60 * 60)
+            cache_key = f'translations_{lang}'
+
+            current_dict = cache.get(cache_key)
+
+            if current_dict is None:
+                current_dict = getTranslateDict()
+                cache.set(cache_key, current_dict, 60 * 60)
 
             return JsonResponse({
                 'status': 'success',
-                'translation': translation,
+                'translation': current_dict,
                 'profile': ResultEncoder(profile),
                 'categories': [ResultEncoder(item) for item in SkillCategory.objects.filter(is_published=True).prefetch_related(
                     Prefetch(

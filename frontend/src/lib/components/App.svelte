@@ -12,7 +12,7 @@
     stateCtx.loading = true;
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch(window.location.pathname, {
         method: 'GET',
         headers: {
           Accept: 'application/json',
